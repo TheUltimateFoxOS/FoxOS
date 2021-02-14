@@ -10,7 +10,7 @@ img: all
 	mmd -i foxos.img ::/EFI/BOOT
 	mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
 	mcopy -i foxos.img startup.nsh ::
-	mcopy -i foxos.img FoxOS-kernel/foxkrnl.elf ::
+	mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::
 	#mcopy -i foxos.img $(BUILDDIR)/zap-light16.psf ::
 	
 run: img
