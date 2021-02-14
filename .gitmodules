@@ -1,0 +1,6 @@
+[submodule "FoxOS-kernel"]
+	path = FoxOS-kernel
+	url = https://github.com/TheUltimateFoxOS/FoxOS-kernel
+[submodule "FoxOS-bootloader"]
+	path = FoxOS-bootloader
+	url = https://github.com/TheUltimateFoxOS/FoxOS-bootloader
