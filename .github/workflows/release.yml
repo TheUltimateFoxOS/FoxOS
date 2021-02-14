@@ -17,8 +17,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-          submodules: recursive
+      with: 
+        token: ${{ secrets.GITHUB_TOKEN }}
+        submodules: recursive
     - name: setup
       run: sudo apt install mtools
     - name: make
