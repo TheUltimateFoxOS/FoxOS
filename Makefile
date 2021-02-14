@@ -1,7 +1,7 @@
 all:
 	make -C FoxOS-bootloader
 	make -C FoxOS-bootloader bootloader
-	make -C FoxOS-kernel setup
+	make -C FoxOS-kernel setup -i
 	make -C FoxOS-kernel
 
 img: all
