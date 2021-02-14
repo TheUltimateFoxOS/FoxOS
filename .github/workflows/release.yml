@@ -17,12 +17,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: Glowman554/setup-nasm@v1
+      with:
+          submodules: recursive
     - name: setup
-      run: |
-        sudo apt install mtools
-        git submodule init
-        git submodule update
+      run: sudo apt install mtools
     - name: make
       run: make img
     - uses: marvinpinto/action-automatic-releases@latest
