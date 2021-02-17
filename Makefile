@@ -6,7 +6,7 @@ all:
 
 img: all
 	dd if=/dev/zero of=foxos.img bs=512 count=93750
-	mformat -i foxos.img -f 1440 ::
+	mkfs.vfat foxos.img
 	mmd -i foxos.img ::/EFI
 	mmd -i foxos.img ::/EFI/BOOT
 	mmd -i foxos.img ::/EFI/FOXOS
