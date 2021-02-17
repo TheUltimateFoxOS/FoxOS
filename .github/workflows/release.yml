@@ -17,6 +17,7 @@ jobs:
     - uses: actions/checkout@v2
       with: 
         submodules: recursive
+    - uses: Glowman554/setup-nasm@v1
     - name: setup
       run: sudo apt install mtools
     - name: make
