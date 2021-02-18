@@ -21,11 +21,13 @@ jobs:
     - name: setup
       run: sudo apt install mtools
     - name: make
-      run: make img
+      run: |
+        echo usb | make usb
+        zip usb.zip usb/*
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         automatic_release_tag: "latest"
         prerelease: false
         title: "Development Build"
-        files: foxos.img 
+        files: usb.zip 
