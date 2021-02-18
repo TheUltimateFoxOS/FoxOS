@@ -1,11 +1,9 @@
 name: Automatic Release
 
 on:
-  #push:
-  #  branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
-  
+  push:
+    branches: [ main ]
+    
   workflow_dispatch:
 
 jobs:
@@ -18,8 +16,6 @@ jobs:
       with: 
         submodules: recursive
     - uses: Glowman554/setup-nasm@v1
-    - name: setup
-      run: sudo apt install mtools
     - name: make
       run: |
         echo usb | make usb
