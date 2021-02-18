@@ -23,7 +23,7 @@ jobs:
     - name: make
       run: |
         echo usb | make usb
-        zip usb.zip usb/*
+        zip -r usb.zip usb/*
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
