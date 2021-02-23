@@ -9,17 +9,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
       with: 
         submodules: recursive
     - uses: Glowman554/setup-nasm@v1
-    - name: update linux
-      run: |
-        sudo apt update
-        sudo apt upgrade -y
     - name: make
       run: |
         echo usb | make usb
