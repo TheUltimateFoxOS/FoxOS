@@ -16,6 +16,10 @@ jobs:
       with: 
         submodules: recursive
     - uses: Glowman554/setup-nasm@v1
+    - name: update linux
+      run: |
+        sudo apt update
+        sudo apt upgrade -y
     - name: make
       run: |
         echo usb | make usb
