@@ -18,12 +18,15 @@ jobs:
     - uses: Glowman554/setup-nasm@v1
     - name: make
       run: |
+        make img
         echo usb | make usb
-        zip -r usb.zip usb/*
+        zip -r foxos.zip usb/*
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         automatic_release_tag: "latest"
         prerelease: false
         title: "Development Build"
-        files: usb.zip 
+        files: |
+          foxos.zip 
+          foxos.img
