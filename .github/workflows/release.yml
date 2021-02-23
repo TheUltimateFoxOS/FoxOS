@@ -16,6 +16,8 @@ jobs:
       with: 
         submodules: recursive
     - uses: Glowman554/setup-nasm@v1
+    - name: install tools
+      run: sudo apt install mtools
     - name: make
       run: |
         make img
