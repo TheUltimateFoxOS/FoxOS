@@ -27,6 +27,6 @@ usb: all
 	@read -p "Enter path to usb >> " usb_path; \
 	mkdir -p $$usb_path/EFI/BOOT; \
 	mkdir -p $$usb_path/EFI/FOXOS; \
-	cp FoxOS-bootloader/x86_64/bootloader/main.efi $$usb_path/EFI/BOOT/BOOTX64.ELF; \
+	cp FoxOS-bootloader/x86_64/bootloader/main.efi $$usb_path/EFI/BOOT/BOOTX64.EFI; \
 	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.; \
 	cp zap-light16.psf $$usb_path/EFI/FOXOS/.
