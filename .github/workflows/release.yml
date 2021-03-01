@@ -9,9 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: 
-    - [self-hosted, Linux, X64]
-    - [ubuntu-20.04]
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
     - uses: actions/checkout@v2
