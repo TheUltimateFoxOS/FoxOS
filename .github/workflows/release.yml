@@ -8,16 +8,12 @@ on:
 
 jobs:
   build:
-
     runs-on: [self-hosted, Linux, X64]
 
     steps:
     - uses: actions/checkout@v2
       with: 
         submodules: recursive
-    - uses: Glowman554/setup-nasm@v1
-    - name: install tools
-      run: sudo apt install mtools
     - name: make
       run: |
         make img
