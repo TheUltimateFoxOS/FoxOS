@@ -1,0 +1,36 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceRoot}/FoxOS-kernel/bin/foxkrnl.elf",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}/FoxOS-kernel",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"preLaunchTask": "run-dbg",
+			"miDebuggerPath": "/usr/bin/gdb",
+			"miDebuggerArgs": "",
+			"targetArchitecture": "x64",
+			"customLaunchSetupCommands": [
+				//{
+				//	"text": "set arch i386:x86-64:intel",
+				//	"description": "set arch"
+				//},
+				{
+					"text": "target remote localhost:1234",
+					"description": "connect to qemu"
+				},
+				{
+					"text": "symbol-file foxkrnl.elf",
+					"description": "load symbols"
+				}
+			],
+			"avoidWindowsConsoleRedirection": true
+		}
+	]
+}

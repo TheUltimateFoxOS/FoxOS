@@ -19,6 +19,13 @@
 			"command": "make usb",
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "run-dbg",
+			"type": "shell",
+			"command": "make run-dbg",
+			"problemMatcher": [],
+			"group": "build"
 		}
 	]
 }

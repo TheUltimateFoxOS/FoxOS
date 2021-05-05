@@ -18,6 +18,9 @@ img: all
 run: img
 	qemu-system-x86_64 -machine q35 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none
 
+run-dbg: img
+	screen -dmS qemu qemu-system-x86_64 -machine q35 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -s -S
+
 clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-bootloader clean
