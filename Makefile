@@ -1,4 +1,4 @@
-QEMUFLAGS = -machine q35 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none
+QEMUFLAGS = -machine q35 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio
 
 all:
 	make -C FoxOS-bootloader
@@ -8,7 +8,7 @@ all:
 
 img: all
 	dd if=/dev/zero of=foxos.img bs=512 count=93750
-	mkfs.vfat foxos.img
+	mkfs.vfat foxos.img -n FOXOS -F32
 	mmd -i foxos.img ::/EFI
 	mmd -i foxos.img ::/EFI/BOOT
 	mmd -i foxos.img ::/EFI/FOXOS
