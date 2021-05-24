@@ -1,4 +1,4 @@
-QEMUFLAGS = -machine q35 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio
+QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio
 
 all:
 	make -C FoxOS-bootloader
@@ -15,7 +15,6 @@ img: all
 	mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
 	mcopy -i foxos.img startup.nsh ::
 	mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
-	mcopy -i foxos.img zap-light16.psf ::/EFI/FOXOS
 
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
@@ -33,5 +32,4 @@ usb: all
 	mkdir -p $$usb_path/EFI/BOOT; \
 	mkdir -p $$usb_path/EFI/FOXOS; \
 	cp FoxOS-bootloader/x86_64/bootloader/main.efi $$usb_path/EFI/BOOT/BOOTX64.EFI; \
-	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.; \
-	cp zap-light16.psf $$usb_path/EFI/FOXOS/.
+	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.;
