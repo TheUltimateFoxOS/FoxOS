@@ -27,6 +27,9 @@ clean:
 	make -C FoxOS-bootloader clean
 	rm foxos.img
 
+debug:
+	deno run --allow-run debug.js
+
 usb: all
 	@read -p "Enter path to usb >> " usb_path; \
 	mkdir -p $$usb_path/EFI/BOOT; \
