@@ -4,3 +4,6 @@
 [submodule "FoxOS-bootloader"]
 	path = FoxOS-bootloader
 	url = https://github.com/TheUltimateFoxOS/FoxOS-bootloader
+[submodule "FoxOS-programs"]
+	path = FoxOS-programs
+	url = https://github.com/TheUltimateFoxOS/FoxOS-programs

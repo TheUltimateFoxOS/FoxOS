@@ -3,18 +3,24 @@ QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive i
 all:
 	make -C FoxOS-bootloader
 	make -C FoxOS-bootloader bootloader
-	make -C FoxOS-kernel setup -i
+	@make -C FoxOS-kernel setup -i
 	make -C FoxOS-kernel
+	@make -C FoxOS-programs setup -i
+	make -C FoxOS-programs
 
 img: all
 	dd if=/dev/zero of=foxos.img bs=512 count=93750
 	mkfs.vfat foxos.img -n FOXOS -F32
-	mmd -i foxos.img ::/EFI
-	mmd -i foxos.img ::/EFI/BOOT
-	mmd -i foxos.img ::/EFI/FOXOS
-	mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
-	mcopy -i foxos.img startup.nsh ::
-	mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
+
+	@mmd -i foxos.img ::/EFI
+	@mmd -i foxos.img ::/EFI/BOOT
+	@mmd -i foxos.img ::/EFI/FOXOS
+	@mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
+	@mcopy -i foxos.img startup.nsh ::
+	@mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
+
+	@mmd -i foxos.img ::/BIN
+	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
 
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
