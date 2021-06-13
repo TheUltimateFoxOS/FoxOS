@@ -16,6 +16,7 @@ jobs:
         submodules: recursive
     - name: make
       run: |
+        make clean -i
         make img
         echo usb | make usb
         zip -r usb.zip usb/*
