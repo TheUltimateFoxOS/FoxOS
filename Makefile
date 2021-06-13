@@ -31,6 +31,7 @@ run-dbg: img
 clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-bootloader clean
+	make -C FoxOS-programs clean
 	rm foxos.img
 
 debug:
