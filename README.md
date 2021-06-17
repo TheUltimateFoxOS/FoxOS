@@ -7,20 +7,27 @@
 Our goal is to develop an operation system that focuses on the terminal, performence and reliability. We hope to provide you with a functionnal, performant and stable OS. And we do that together, everyone can help!
 
 ## Building
-To build this os, you will need a 64bit Ubuntu or Debian based os that you can install the following pachages on: `sudo apt-get install mtools build-essential nasm`<br>
+Before you build the project, you need to clone the submodules. To do so, run `git submodule update --init --recursive`.<br>
+To build this OS, you will need a 64bit Ubuntu or Debian based os that you can install the following pachages on: `mtools`, `build-essential` and `nasm`. Install them like this: `sudo apt install mtools build-essential nasm`.<br>
 Then simply run one of the following:<br>
-`make` to build the files<br>
-`make img` to build a .img (this also runs the default make)<br>
-`make usb` to build a bootable USB. The USB must be formatted with FAT32 (this also runs the default make)<br>
+* `make`: build the project.
+* `make img`: package the `.img` file.
+* `make usb`: build a bootable USB. **The USB must be formatted with FAT32!** You will also need `zip` installed on your building machine. To install, simply run `sudo apt install zip`.
+
+## Other make commands
+* `make clean`: clear all the built files.
+* `make debug`: build and debug using [https://deno.land/](deno).
+* `make run-dbg`: start a screen for QEMU so you can debug using gdb.
 
 ## Contributing
-Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our Discord, we are there to help with any question.
+Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [https://discord.gg/qfYBHFWDcK](Discord), we are there to help with any question you may have. Or you can [https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose](create an issue).
 
 ## Running
 To run this OS, you can either use a VM or a bootable USB. See the building section for more info on how to build them.<br>
-To run this OS in QEMU, you can run `make run` to build and launch QEMU with the correct configuration.<br>
-To run this OS in VirtalBox, you will need to create an optical drive (`.iso`, `.viso`, ...). Then you need to enable EFI under "System" in your VM's config. Then run it!
+How to start:<br>
+* **QEMU**: Use make `make run` to build and launch QEMU with the correct configuration.
+* **VirtalBox**: You will need to create an optical drive (`.iso`, `.viso`, ...) from the `.img` file. Then you need to enable EFI under "System" in your VM's config. Then run it!
 If you want to add documentation to booting on different software, feel free to do so.
 
 ## Our Discord
-Here is the link to our Discord: https://discord.gg/qfYBHFWDcK
+Here is the link to our [https://discord.gg/qfYBHFWDcK](Discord).
