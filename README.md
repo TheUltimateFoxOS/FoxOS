@@ -16,11 +16,11 @@ Then simply run one of the following:<br>
 
 ## Other make commands
 * `make clean`: clear all the built files.
-* `make debug`: build and debug using [https://deno.land/](deno).
+* `make debug`: build and debug using [deno](https://deno.land/).
 * `make run-dbg`: start a screen for QEMU so you can debug using gdb.
 
 ## Contributing
-Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [https://discord.gg/qfYBHFWDcK](Discord), we are there to help with any question you may have. Or you can [https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose](create an issue).
+Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [Discord](https://discord.gg/qfYBHFWDcK), we are there to help with any question you may have. Or you can [create an issue](https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose).
 
 ## Running
 To run this OS, you can either use a VM or a bootable USB. See the building section for more info on how to build them.<br>
@@ -30,4 +30,4 @@ How to start:<br>
 If you want to add documentation to booting on different software, feel free to do so.
 
 ## Our Discord
-Here is the link to our [https://discord.gg/qfYBHFWDcK](Discord).
+Here is the link to our [Discord](https://discord.gg/qfYBHFWDcK).
