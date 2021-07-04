@@ -8,10 +8,13 @@ Our goal is to develop an operation system that focuses on the terminal, perform
 
 ## Building
 Before you build the project, you need to clone the submodules. To do so, run `git submodule update --init --recursive`.<br>
+
 To build this OS, you have two options, you need one of these:
 * A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `mtools`, `build-essential` and `nasm`. Install them like this: `sudo apt install mtools build-essential nasm`.
 * WSL (Windows Subsystem for Linx) with Ubuntu installed and the same tings as above.
-* Our Docker image. You can run it like this: `docker run -it --rm ghcr.io/theultimatefoxos/foxos-toolchain:latest`. An easy way to have this setup would be to open a command line or terminal window at a directory on your host machine with FoxOS cloned and run this: `docker run -it --rm -v $PWD:/root/FoxOS ghcr.io/theultimatefoxos/foxos-toolchain:latest` to mount it at `/root/FoxOS`.<br>
+* Our Docker image. You can run it like this: `docker run -it --rm ghcr.io/theultimatefoxos/foxos-toolchain:latest`. An easy way to have this setup would be to open a command line or terminal window at a directory on your host machine with FoxOS cloned and run this: `docker run -it --rm -v $PWD:/root/FoxOS ghcr.io/theultimatefoxos/foxos-toolchain:latest` to mount it at `/root/FoxOS`.
+<br>
+
 Then simply run one of the following:
 * `make`: build the project.
 * `make img`: package the `.img` file.
