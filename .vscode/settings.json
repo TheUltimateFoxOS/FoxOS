@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"*.inc": "cpp",
-		"charconv": "cpp"
+		"charconv": "cpp",
+		"resolve_symbol.h": "c"
 	}
 }
