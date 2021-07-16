@@ -25,7 +25,7 @@ img: all
 
 macos-img:
 	make -C FoxOS-bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
-	make -C FoxOS-bootloader bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH/bin/foxos-) LINUX_HEADERS=$(FOX_GCC_PATH)
+	make -C FoxOS-bootloader bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
@@ -52,6 +52,9 @@ vdi: img
 
 qcow2: img
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
+
+run-macos: macos-img
+	qemu-system-x86_64 $(QEMUFLAGS)
 
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
