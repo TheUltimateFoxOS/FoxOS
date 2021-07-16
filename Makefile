@@ -41,7 +41,7 @@ clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-bootloader clean
 	make -C FoxOS-programs clean
-	rm foxos.img
+	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
 
 debug:
 	deno run --allow-run debug.js
