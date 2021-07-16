@@ -44,6 +44,15 @@ macos-img:
 	@mmd -i foxos.img ::/BIN
 	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
 
+vmdk: img
+	qemu-img convert foxos.img -O vmdk foxos.vmdk
+
+vdi: img
+	qemu-img convert foxos.img -O vdi foxos.vdi
+
+qcow2: img
+	qemu-img convert foxos.img -O qcow2 foxos.qcow2
+
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
 
@@ -54,7 +63,7 @@ clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-bootloader clean
 	make -C FoxOS-programs clean
-	rm foxos.img
+	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
 
 debug:
 	deno run --allow-run debug.js

@@ -17,7 +17,7 @@ jobs:
     - name: make
       run: |
         make clean -i
-        make img
+        make img vmdk vdi qcow2
         echo usb | make usb
         zip -r usb.zip usb/*
     - uses: marvinpinto/action-automatic-releases@latest
@@ -28,4 +28,7 @@ jobs:
         title: "Development Build"
         files: | 
             foxos.img
+            foxos.vmdk
+            foxos.vdi
+            foxos.qcow2
             usb.zip
