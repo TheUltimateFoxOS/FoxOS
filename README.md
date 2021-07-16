@@ -10,7 +10,7 @@ Our goal is to develop an operation system that focuses on the terminal, perform
 Before you build the project, you need to clone the submodules. To do so, run `git submodule update --init --recursive`.<br>
 
 To build this OS, you have two options, you need one of these:
-* A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `mtools`, `build-essential` and `nasm`. Install them like this: `sudo apt install mtools build-essential nasm`.
+* A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `mtools`, `build-essential` and `nasm`. Install them like this: `sudo apt install mtools build-essential nasm qemu-utils`.
 * WSL (Windows Subsystem for Linx) with Ubuntu installed and the same tings as above.
 * Our Docker image. You can run it like this: `docker run -it --rm ghcr.io/theultimatefoxos/foxos-toolchain:latest`. An easy way to have this setup would be to open a command line or terminal window at a directory on your host machine with FoxOS cloned and run this: `docker run -it --rm -v $PWD:/root/FoxOS ghcr.io/theultimatefoxos/foxos-toolchain:latest` to mount it at `/root/FoxOS`.
 <br>
@@ -32,7 +32,7 @@ Feel free to fix a bug, implement a feature or any other change you thing would 
 To run this OS, you can either use a VM or a bootable USB. See the building section for more info on how to build them.<br>
 How to start:
 * **QEMU**: Use make `make run` to build and launch QEMU with the correct configuration.
-* **VirtalBox**: You will need to create an optical drive (`.iso`, `.viso`, ...) from the `.img` file. Then you need to enable EFI under "System" in your VM's config. Then run it!
+* **VirtalBox**: You will need to create an optical drive (`.iso`, `.viso`, ...) or a suported image format (`.vdi`, `.qcow2`, ...) from the `.img` file. Then you need to enable EFI under "System" in your VM's config. Then run it!
 If you want to add documentation to booting on different software, feel free to do so.
 
 ## Our Discord
