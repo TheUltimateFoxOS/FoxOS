@@ -22,6 +22,15 @@ img: all
 	@mmd -i foxos.img ::/BIN
 	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
 
+vmdk: img
+	qemu-img convert foxos.img -O vmdk foxos.vmdk
+
+vdi: img
+	qemu-img convert foxos.img -O vdi foxos.vdi
+
+qcow2: img
+	qemu-img convert foxos.img -O qcow2 foxos.qcow2
+
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
 
