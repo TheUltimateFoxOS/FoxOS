@@ -1,4 +1,5 @@
 QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio
+FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
 all:
 	make -C FoxOS-bootloader
@@ -11,6 +12,27 @@ all:
 img: all
 	dd if=/dev/zero of=foxos.img bs=512 count=93750
 	mkfs.vfat foxos.img -n FOXOS -F32
+
+	@mmd -i foxos.img ::/EFI
+	@mmd -i foxos.img ::/EFI/BOOT
+	@mmd -i foxos.img ::/EFI/FOXOS
+	@mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
+	@mcopy -i foxos.img startup.nsh ::
+	@mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
+
+	@mmd -i foxos.img ::/BIN
+	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
+
+macos-img:
+	make -C FoxOS-bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
+	make -C FoxOS-bootloader bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH/bin/foxos-) LINUX_HEADERS=$(FOX_GCC_PATH)
+	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
+	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
+	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
+	make -C FoxOS-programs TOOLCHAIN_BASE=$(FOX_GCC_PATH)
+
+	dd if=/dev/zero of=foxos.img bs=512 count=93750
+	$(FOX_GCC_PATH)/bin/foxos-mkfs.vfat foxos.img -n FOXOS -F32
 
 	@mmd -i foxos.img ::/EFI
 	@mmd -i foxos.img ::/EFI/BOOT
