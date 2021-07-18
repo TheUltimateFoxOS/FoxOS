@@ -2,26 +2,33 @@ QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive i
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
 all:
-	make -C FoxOS-bootloader
-	make -C FoxOS-bootloader bootloader
 	@make -C FoxOS-kernel setup -i
 	make -C FoxOS-kernel
 	@make -C FoxOS-programs setup -i
 	make -C FoxOS-programs
 
-img: all
+./tmp/limine:
+	@echo "Downloading lates limine release!"
+	@mkdir -p ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary --depth=1 ./tmp/limine
+
+
+img: all ./tmp/limine
 	dd if=/dev/zero of=foxos.img bs=512 count=93750
 	mkfs.vfat foxos.img -n FOXOS -F32
 
 	@mmd -i foxos.img ::/EFI
 	@mmd -i foxos.img ::/EFI/BOOT
 	@mmd -i foxos.img ::/EFI/FOXOS
-	@mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
+
+	@mcopy -i foxos.img ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
+	@mcopy -i foxos.img limine.cfg ::
 	@mcopy -i foxos.img startup.nsh ::
 	@mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
 
 	@mmd -i foxos.img ::/BIN
 	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
+
 
 macos-img:
 	make -C FoxOS-bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
@@ -37,7 +44,9 @@ macos-img:
 	@mmd -i foxos.img ::/EFI
 	@mmd -i foxos.img ::/EFI/BOOT
 	@mmd -i foxos.img ::/EFI/FOXOS
-	@mcopy -i foxos.img FoxOS-bootloader/x86_64/bootloader/main.efi ::/EFI/BOOT
+
+	@mcopy -i foxos.img ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
+	@mcopy -i foxos.img limine.cfg ::
 	@mcopy -i foxos.img startup.nsh ::
 	@mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
 
@@ -64,16 +73,19 @@ run-dbg: img
 
 clean:
 	make -C FoxOS-kernel clean
-	make -C FoxOS-bootloader clean
 	make -C FoxOS-programs clean
 	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
 
 debug:
 	deno run --allow-run debug.js
 
-usb: all
+usb: all ./tmp/limine
 	@read -p "Enter path to usb >> " usb_path; \
 	mkdir -p $$usb_path/EFI/BOOT; \
 	mkdir -p $$usb_path/EFI/FOXOS; \
-	cp FoxOS-bootloader/x86_64/bootloader/main.efi $$usb_path/EFI/BOOT/BOOTX64.EFI; \
-	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.;
+	mkdir -p $$usb_path/BIN; \
+	cp ./tmp/limine/BOOTX64.EFI $$usb_path/EFI/BOOT/BOOTX64.EFI; \
+	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.; \
+	cp limine.cfg $$usb_path/limine.cfg; \
+	cp startup.nsh $$usb_path/startup.nsh; \
+	cp FoxOS-programs/bin/test.elf $$usb_path/BIN/.;

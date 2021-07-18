@@ -3,3 +3,4 @@ foxos.img
 foxos.vmdk
 foxos.vdi
 foxos.qcow2
+tmp/**

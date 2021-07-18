@@ -10,7 +10,7 @@ Our goal is to develop an operation system that focuses on the terminal, perform
 Before you build the project, you need to clone the submodules. To do so, run `git submodule update --init --recursive`.<br>
 
 To build this OS, you need one of these:
-* A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `sudo apt install mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils`. We recommend you run `toolchain.sh` to build binaries that will be compatible with FoxOS.
+* A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `sudo apt install mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils git`. We recommend you run `toolchain.sh` to build binaries that will be compatible with FoxOS.
 * WSL (Windows Subsystem for Linx) with Ubuntu installed and the same tings as above.
 * Our Docker image. You can run it like this: `docker run -it --rm ghcr.io/theultimatefoxos/foxos-toolchain:latest`. An easy way to have this setup would be to open a command line or terminal window at a directory on your host machine with FoxOS cloned and run this: `docker run -it --rm -v $PWD:/root/FoxOS ghcr.io/theultimatefoxos/foxos-toolchain:latest` to mount it at `/root/FoxOS`.
 * An intel Mac. You need to make sure to have these commands: `curl`, `zip`/`unzip`, `make`, `brew` and `gcc`. First run: `brew install mtools`, then run `toolchain_mac.sh`. To be able to build the bootloader, you need to get `elf.h` from `/usr/include/elf.h` on Ubuntu and put it in `FoxOS-bootloader/inc`.
