@@ -46,8 +46,7 @@ jobs:
       
       - name: commit
         run: |
-          git config --global user.name '${{ GITHUB_ACTOR }}'
-          git config --global user.email '${{ GITHUB_ACTOR }}@users.noreply.github.com'
+          git config --global user.name '${GITHUB_ACTOR}'
+          git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'
           git commit -am "Automated screenshot update"
           git push
-        continue-on-error: true
