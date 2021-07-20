@@ -30,9 +30,7 @@ img: all ./tmp/limine
 	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
 
 
-macos-img:
-	make -C FoxOS-bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
-	make -C FoxOS-bootloader bootloader PREFIX=$(FOX_GCC_PATH) CROSS_COMPILE=$(FOX_GCC_PATH)/bin/foxos- LINUX_HEADERS=$(FOX_GCC_PATH)
+macos-img: ./tmp/limine
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
