@@ -3,5 +3,6 @@ foxos.img
 foxos.vmdk
 foxos.vdi
 foxos.qcow2
+foxos.jpg
 tmp/**
 .toolchain/**

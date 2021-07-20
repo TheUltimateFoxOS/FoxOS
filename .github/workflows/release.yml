@@ -20,6 +20,7 @@ jobs:
         make img vmdk vdi qcow2
         echo usb | make usb
         zip -r usb.zip usb/*
+        make screenshot
     - uses: marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -31,22 +32,5 @@ jobs:
             foxos.vmdk
             foxos.vdi
             foxos.qcow2
+            foxos.jpg
             usb.zip
-  screenshot:
-    runs-on: [self-hosted, Linux, X64]
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: recursive
-      - name: make
-        run: |
-          make clean -i
-          make screenshot
-      
-      - name: commit
-        run: |
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git commit -am "Automated screenshot update"
-          git push

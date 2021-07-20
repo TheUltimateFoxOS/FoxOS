@@ -6,7 +6,7 @@
 
 Our goal is to develop an operation system that focuses on the terminal, performence and reliability. We hope to provide you with a functionnal, performant and stable OS. And we do that together, everyone can help!
 
-![screenshot](foxos.jpg)
+![screenshot](https://github.com/TheUltimateFoxOS/FoxOS/releases/download/latest/foxos.jpg)
 
 ## Building
 Before you build the project, you need to clone the submodules. To do so, run `git submodule update --init --recursive`.<br>
