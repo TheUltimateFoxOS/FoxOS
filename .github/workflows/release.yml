@@ -32,3 +32,17 @@ jobs:
             foxos.vdi
             foxos.qcow2
             usb.zip
+  screenshot:
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          - name: make
+      run: |
+        make clean -i
+        make screenshot
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

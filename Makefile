@@ -71,6 +71,12 @@ run: img
 run-dbg: img
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS) -s -S
 
+run-vnc: img
+	qemu-system-x86_64 $(QEMUFLAGS) -vnc :1
+
+screenshot:
+	echo "(make run-vnc  &>/dev/null & disown; sleep 30; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
+
 clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-programs clean
