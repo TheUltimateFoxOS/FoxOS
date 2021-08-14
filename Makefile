@@ -43,9 +43,6 @@ vdi: img
 qcow2: img
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
 
-run-macos: macos-img
-	qemu-system-x86_64 $(QEMUFLAGS)
-
 run: img
 	qemu-system-x86_64 $(QEMUFLAGS)
 
