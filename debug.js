@@ -23,5 +23,10 @@ if(to_bool(prompt("Show regs? "))) {
 
 command += " ./FoxOS-kernel/bin/foxkrnl.elf"
 
-await exec("make run-dbg");
+if(to_bool(prompt("Boot bios? "))) {
+	await exec("make run-dbg-bios");
+} else {
+	await exec("make run-dbg");
+}
+
 exec(command);

@@ -1,4 +1,6 @@
 QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio -soundhw pcspk
+QEMUFLAGS_BIOS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -net none -serial stdio -soundhw pcspk
+
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
 FATCMD := $(shell command -v mkfs.vfat 2> /dev/null)
@@ -15,24 +17,7 @@ all:
 	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary --depth=1 ./tmp/limine
 
 img: all ./tmp/limine
-	dd if=/dev/zero of=foxos.img bs=512 count=93750
-ifdef FATCMD
-	mkfs.vfat foxos.img -n FOXOS -F32
-else
-	$(FOX_GCC_PATH)/bin/foxos-mkfs.vfat foxos.img -n FOXOS -F32
-endif
-
-	@mmd -i foxos.img ::/EFI
-	@mmd -i foxos.img ::/EFI/BOOT
-	@mmd -i foxos.img ::/EFI/FOXOS
-
-	@mcopy -i foxos.img ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
-	@mcopy -i foxos.img limine.cfg ::
-	@mcopy -i foxos.img startup.nsh ::
-	@mcopy -i foxos.img FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
-
-	@mmd -i foxos.img ::/BIN
-	@mcopy -i foxos.img FoxOS-programs/bin/test.elf ::/BIN
+	sh disk.sh
 
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
@@ -51,6 +36,15 @@ run-dbg: img
 
 run-vnc: img
 	qemu-system-x86_64 $(QEMUFLAGS) -vnc :1
+
+run-bios: img
+	qemu-system-x86_64 $(QEMUFLAGS_BIOS)
+
+run-dbg-bios: img
+	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS_BIOS) -s -S
+
+run-vnc-bios: img
+	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
 
 screenshot:
 	echo "(make run-vnc  &>/dev/null & disown; sleep 30; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
