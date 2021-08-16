@@ -47,7 +47,7 @@ run-vnc-bios: img
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
 
 screenshot:
-	echo "(make run-vnc  &>/dev/null & disown; sleep 30; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
+	echo "(make run-vnc-bios  &>/dev/null & disown; sleep 30; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
 
 clean:
 	make -C FoxOS-kernel clean
