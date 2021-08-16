@@ -4,8 +4,17 @@ dd if=/dev/zero of=foxos.img bs=512 count=93750
 
 echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img' | sh
 
-export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
-export PROG_PREFIX="foxos-"
+if [ "$1" != "" ]; then
+	export PREFIX=$1
+else
+	export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
+fi
+
+if [ "$2" != "" ]; then
+	export PROG_PREFIX=$2
+else
+	export PROG_PREFIX="foxos-"
+fi
 
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' m
