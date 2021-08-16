@@ -17,7 +17,7 @@ all:
 	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary --depth=1 ./tmp/limine
 
 img: all ./tmp/limine
-	sh disk.sh
+	sh disk.sh $(FOX_GCC_PATH)
 
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
