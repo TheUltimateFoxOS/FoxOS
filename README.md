@@ -4,7 +4,7 @@
 [![Discord](https://img.shields.io/discord/810910573864550410.svg?color=%237289da&label=discord)](https://discord.gg/qfYBHFWDcK)
 [![Automatic Release](https://github.com/TheUltimateFoxOS/FoxOS/actions/workflows/release.yml/badge.svg)](https://github.com/TheUltimateFoxOS/FoxOS/actions/workflows/release.yml)
 
-Our goal is to develop an operation system that focuses on the terminal, performence and reliability. We hope to provide you with a functionnal, performant and stable OS. And we do that together, everyone can help!
+Our goal is to develop an operation system that focuses on the terminal, performence and reliability. We hope to provide you with a functional, performant and stable OS. And we do that together, everyone can help!
 
 ![screenshot](https://github.com/TheUltimateFoxOS/FoxOS/releases/download/latest/foxos.jpg)
 
