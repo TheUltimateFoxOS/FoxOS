@@ -1,26 +1,39 @@
+#!/bin/bash
+
 dd if=/dev/zero of=foxos.img bs=512 count=93750
 
-echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img
+echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img' | sh
 
-disk_mount_path=$(losetup -Pf --show foxos.img)
+export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
+export PROG_PREFIX="foxos-"
 
-echo Mounted disk as $disk_mount_path
+if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
+	$PREFIX'/bin/'$PROG_PREFIX'losetup' m
+else
+	losetup /dev/loop9 foxos.img
+fi
 
-mkfs.vfat -F 32 $disk_mount_path'p1'
+echo Mounted disk as /dev/loop9
 
-mmd -i $disk_mount_path'p1' ::/EFI
-mmd -i $disk_mount_path'p1' ::/EFI/BOOT
-mmd -i $disk_mount_path'p1' ::/EFI/FOXOS
+mkfs.vfat -F 32 /dev/loop9p1
 
-mcopy -i $disk_mount_path'p1' ./tmp/limine/limine.sys ::
-mcopy -i $disk_mount_path'p1' ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
-mcopy -i $disk_mount_path'p1' limine.cfg ::
-mcopy -i $disk_mount_path'p1' startup.nsh ::
-mcopy -i $disk_mount_path'p1' FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
+mmd -i /dev/loop9p1 ::/EFI
+mmd -i /dev/loop9p1 ::/EFI/BOOT
+mmd -i /dev/loop9p1 ::/EFI/FOXOS
 
-mmd -i $disk_mount_path'p1' ::/BIN
-mcopy -i $disk_mount_path'p1' FoxOS-programs/bin/test.elf ::/BIN
+mcopy -i /dev/loop9p1 ./tmp/limine/limine.sys ::
+mcopy -i /dev/loop9p1 ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
+mcopy -i /dev/loop9p1 limine.cfg ::
+mcopy -i /dev/loop9p1 startup.nsh ::
+mcopy -i /dev/loop9p1 FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
 
-losetup -d $disk_mount_path
+mmd -i /dev/loop9p1 ::/BIN
+mcopy -i /dev/loop9p1 FoxOS-programs/bin/test.elf ::/BIN
+
+if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
+	$PREFIX'/bin/'$PROG_PREFIX'losetup' u
+else
+	losetup -d /dev/loop9
+fi
 
 ./tmp/limine/limine-install-linux-x86_64 foxos.img

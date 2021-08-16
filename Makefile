@@ -67,3 +67,10 @@ usb: all ./tmp/limine
 	cp limine.cfg $$usb_path/limine.cfg; \
 	cp startup.nsh $$usb_path/startup.nsh; \
 	cp FoxOS-programs/bin/test.elf $$usb_path/BIN/.;
+
+losetup:
+	gcc -xc -o losetup.elf losetup.c
+	chmod u+s losetup.elf
+	chmod g+s losetup.elf
+
+	mv losetup.elf $(FOX_GCC_PATH)/bin/foxos-losetup -v
