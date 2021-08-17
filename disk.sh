@@ -19,7 +19,7 @@ fi
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' m
 else
-	losetup /dev/loop9 foxos.img
+	losetup /dev/loop9 foxos.img -P
 fi
 
 echo Mounted disk as /dev/loop9
