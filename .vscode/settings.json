@@ -2,6 +2,9 @@
 	"files.associations": {
 		"*.inc": "cpp",
 		"charconv": "cpp",
-		"resolve_symbol.h": "c"
+		"resolve_symbol.h": "c",
+		"socket": "cpp",
+		"condition_variable": "cpp",
+		"future": "cpp"
 	}
 }
