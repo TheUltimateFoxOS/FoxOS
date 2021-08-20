@@ -3,8 +3,6 @@ QEMUFLAGS_BIOS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -ne
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
-FATCMD := $(shell command -v mkfs.vfat 2> /dev/null)
-
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
@@ -18,6 +16,9 @@ all:
 
 img: all ./tmp/limine
 	sh disk.sh $(FOX_GCC_PATH)
+
+mac-img: all ./tmp/limine
+	sh mac-disk.sh $(FOX_GCC_PATH)
 
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk

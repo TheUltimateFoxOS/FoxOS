@@ -15,16 +15,18 @@ To build this OS, you need one of these:
 * A 64bit Ubuntu or Debian based OS that you can install the following pachages on: `sudo apt install mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils git`. We recommend you run `toolchain.sh` to build binaries that will be compatible with FoxOS.
 * WSL (Windows Subsystem for Linx) with Ubuntu installed and the same tings as above.
 * Our Docker image. You can run it like this: `docker run -it --rm ghcr.io/theultimatefoxos/foxos-toolchain:latest`. An easy way to have this setup would be to open a command line or terminal window at a directory on your host machine with FoxOS cloned and run this: `docker run -it --rm -v $PWD:/root/FoxOS ghcr.io/theultimatefoxos/foxos-toolchain:latest` to mount it at `/root/FoxOS`.
-* A Mac. You need to make sure to have these commands: `curl`, `zip`/`unzip`, `make`, `brew` and `gcc`. First run: `brew install mtools`, then run `toolchain_mac.sh`. To be able to build the bootloader, you need to get `elf.h` from `/usr/include/elf.h` on Ubuntu and put it in `FoxOS-bootloader/inc`.
+* A Mac. You need to make sure to have these commands: `curl`, `zip`/`unzip`, `make`, `brew` and `gcc`. First run: `brew install mtools`, `brew install gdisk`, and then run `toolchain_mac.sh`. To be able to build the bootloader, you need to get `elf.h` from `/usr/include/elf.h` on Ubuntu and put it in `FoxOS-bootloader/inc`.
 <br>
 
 Then simply run one of the following:
 * `make`: build the project.
-* `make img`: package the `.img` file. (Will work on Mac)
-* `make run`: To build and run FoxOS.
+* `make img`: package the `.img` file. (Will not work on Mac)
+* `make mac-img`: package the `.img` file on a Mac.
+* `make run`: To build and run FoxOS. (Will not work on Mac)
 * `make usb`: build a bootable USB. **The USB must be formatted with FAT32!**
 
 ## Other make commands
+* `make losetup`: build a script to be able to run `losetup` without root permissions.
 * `make clean`: clear all the built files.
 * `make debug`: build and debug using [deno](https://deno.land/).
 * `make run-dbg`: start a screen for QEMU so you can debug using `gdb`.
