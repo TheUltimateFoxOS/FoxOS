@@ -12,7 +12,6 @@
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "gdb",
-			"preLaunchTask": "run-dbg",
 			"miDebuggerPath": "/usr/bin/gdb",
 			"miDebuggerArgs": "",
 			"targetArchitecture": "x64",
