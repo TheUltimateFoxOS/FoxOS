@@ -35,3 +35,8 @@ mmd -i ${dev_mount}s1 ::/BIN
 mcopy -i ${dev_mount}s1 FoxOS-programs/bin/test.elf ::/BIN
 
 hdiutil detach ${dev_mount}
+
+cd tmp/limine/
+make limine-install
+cd ../../
+./tmp/limine/limine-install foxos.img
