@@ -5,6 +5,8 @@
 		"resolve_symbol.h": "c",
 		"socket": "cpp",
 		"condition_variable": "cpp",
-		"future": "cpp"
+		"future": "cpp",
+		"*.tcc": "cpp",
+		"buffer": "cpp"
 	}
 }
