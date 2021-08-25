@@ -33,6 +33,7 @@ mcopy -i ${dev_mount}s1 FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
 
 mmd -i ${dev_mount}s1 ::/BIN
 mcopy -i ${dev_mount}s1 FoxOS-programs/bin/test.elf ::/BIN
+mcopy -i ${dev_mount}s1 FoxOS-programs/bin/terminal.elf ::/BIN
 
 hdiutil detach ${dev_mount}
 

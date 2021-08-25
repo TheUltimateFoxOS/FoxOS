@@ -38,6 +38,7 @@ mcopy -i /dev/loop9p1 FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
 
 mmd -i /dev/loop9p1 ::/BIN
 mcopy -i /dev/loop9p1 FoxOS-programs/bin/test.elf ::/BIN
+mcopy -i /dev/loop9p1 FoxOS-programs/bin/terminal.elf ::/BIN
 
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' u
