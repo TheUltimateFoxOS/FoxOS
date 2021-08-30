@@ -6,28 +6,35 @@ int main(int argc, char *argv[]) {
 	setuid(0);
 	setgid(0);
 
-	if (argc != 2) {
-		printf("Usage: %s <m/u>\n", argv[0]);
+	if (argc != 3) {
+		printf("Usage: %s <m/u> <id>\n", argv[0]);
 		return 1;
 	}
 
 	if (argv[1][1] != 0) {
-		printf("Usage: %s <m/u>\n", argv[0]);
+		printf("Usage: %s <m/u> <id>\n", argv[0]);
 		return 1;
 	}
 
+	char buffer[256];
+
 	switch (argv[1][0]) {
 		case 'm':
-			system("losetup /dev/loop9 foxos.img -P");
-			system("chown $USER:$USER /dev/loop9");
-			system("chown $USER:$USER /dev/loop9p1");
+			sprintf(buffer, "losetup /dev/loop%s foxos.img -P", argv[2]);
+			system(buffer);
+			sprintf(buffer, "chown $USER:$USER /dev/loop%s", argv[2]);
+			system(buffer);
+			sprintf(buffer, "chown $USER:$USER /dev/loop%sp1", argv[2]);
+			system(buffer);
 			break;
 		case 'u':
-			system("losetup -d /dev/loop9");
-			system("chown root:root /dev/loop9");
+			sprintf(buffer, "losetup -d /dev/loop%s", argv[2]);
+			system(buffer);
+			sprintf(buffer, "chown root:root /dev/loop%s", argv[2]);
+			system(buffer);
 			break;
-		
 		default:
+			printf("Usage: %s <m/u> <id>\n", argv[0]);
 			return 1;
 	}
 }
