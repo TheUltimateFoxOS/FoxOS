@@ -16,7 +16,11 @@ else
 	export PROG_PREFIX="foxos-"
 fi
 
-dev_mount=`losetup -f | egrep -o '[0-9]+'`
+if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
+	dev_mount=`$PREFIX'/bin/'$PROG_PREFIX'losetup' f | egrep -o '[0-9]+'`
+else
+	dev_mount=`losetup -f | egrep -o '[0-9]+'`
+fi
 
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' m ${dev_mount}
