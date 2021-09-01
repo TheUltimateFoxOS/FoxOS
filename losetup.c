@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	setuid(0);
 	setgid(0);
 
-	if (argc > 3) {
+	if (argc < 2 || argc > 3) {
 		printf("Usage: %s <m/u/f> <id?>\n", argv[0]);
 		return 1;
 	}
