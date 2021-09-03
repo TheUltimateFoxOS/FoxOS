@@ -33,7 +33,7 @@ Then simply run one of the following:
 * `make vmdk`: build a `.vmdk` file.
 * `make vdi`: build a `.vdi` file.
 * `make qcow2`: build a `.qcow2` file.
-
+* `make vbox-setup` setup a virtualbox vm (only works on linux)
 ## Contributing
 Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [Discord](https://discord.gg/qfYBHFWDcK), we are there to help with any question you may have. Or you can [create an issue](https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose).
 

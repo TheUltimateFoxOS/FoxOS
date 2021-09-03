@@ -1,5 +1,5 @@
 QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -net none -serial stdio -soundhw pcspk
-QEMUFLAGS_BIOS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -net none -serial stdio -soundhw pcspk
+QEMUFLAGS_BIOS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -net none -serial stdio -soundhw pcspk -net nic,model=pcnet -net user
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
@@ -75,3 +75,19 @@ losetup:
 	chmod g+s losetup.elf
 
 	mv losetup.elf $(FOX_GCC_PATH)/bin/foxos-losetup -v
+
+FOXOS_VM_NAME = foxos-runner
+
+vbox-setup:
+	vboxmanage createvm --name $(FOXOS_VM_NAME)
+	vboxmanage registervm /home/$(USER)/VirtualBox\ VMs/$(FOXOS_VM_NAME)/$(FOXOS_VM_NAME).vbox
+
+	vboxmanage modifyvm $(FOXOS_VM_NAME) --longmode on --ioapic on --nic1 nat --nictype1 Am79C973 --memory 1024 --uart1 0x3f8 4 --uartmode1 file /tmp/vbox.log
+
+	vboxmanage storagectl $(FOXOS_VM_NAME) --name "IDE Controller" --add ide --controller PIIX4
+
+	vboxmanage storageattach $(FOXOS_VM_NAME) --storagectl "IDE Controller" --port 1 --device 0 --type hdd --medium `pwd`/foxos.qcow2
+
+run-vbox: qcow2
+	vboxmanage startvm --putenv VBOX_GUI_DBG_ENABLED=true $(FOXOS_VM_NAME)
+	watch -n 0.1 tail /tmp/vbox.log -n $(shell echo $(shell tput lines) - 1 | bc)
