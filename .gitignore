@@ -6,3 +6,5 @@ foxos.qcow2
 foxos.jpg
 tmp/**
 .toolchain/**
+
+dump.dat
