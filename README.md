@@ -35,7 +35,8 @@ Then simply run one of the following:
 * `make qcow2`: build a `.qcow2` file.
 * `make vbox-setup` setup a virtualbox vm (only works on linux)
 ## Contributing
-Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [Discord](https://discord.gg/qfYBHFWDcK), we are there to help with any question you may have. Or you can [create an issue](https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose).
+Feel free to fix a bug, implement a feature or any other change you thing would be good. If you want to contact us, join our [Discord](https://discord.gg/qfYBHFWDcK), we are there to help with any question you may have. Or you can [create an issue](https://github.com/TheUltimateFoxOS/FoxOS/issues/new/choose).  
+If you dont know what to implement you can take a look at our [todo list](https://github.com/TheUltimateFoxOS/FoxOS/projects/1).
 
 ## Running
 To run this OS, you can either use a VM or a bootable USB. See the building section for more info on how to build them.<br>
