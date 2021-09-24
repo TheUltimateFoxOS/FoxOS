@@ -6,7 +6,7 @@ For your first pull request, start with something small to get familiar with the
 
 ## Language
 
-FoxOS code needs to be commented in english and variable names need to be in snake_case or camelCase. Variables and functions should have self explanatory names in english.
+FoxOS code needs to be commented in english and variable names need to be in snake_case or camelCase. Variables and functions should have self explanatory names in english. Indentation should be with tabs only.
 
 ## Coding Style
 
