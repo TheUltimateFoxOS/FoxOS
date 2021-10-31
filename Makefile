@@ -12,7 +12,8 @@ all:
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary --depth=1 ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary ./tmp/limine
+	@cd ./tmp/limine/ && git checkout d685f91650fefad6a9a1fdb30c3c1d29b629a5cf
 
 img: all ./tmp/limine
 	sh disk.sh $(FOX_GCC_PATH)
