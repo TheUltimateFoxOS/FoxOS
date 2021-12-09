@@ -7,6 +7,8 @@
 		"condition_variable": "cpp",
 		"future": "cpp",
 		"*.tcc": "cpp",
-		"buffer": "cpp"
+		"buffer": "cpp",
+		"limits": "cpp",
+		"type_traits": "cpp"
 	}
 }

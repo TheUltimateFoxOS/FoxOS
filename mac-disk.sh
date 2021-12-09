@@ -29,11 +29,10 @@ mcopy -i ${dev_mount}s1 ./tmp/limine/limine.sys ::
 mcopy -i ${dev_mount}s1 ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
 mcopy -i ${dev_mount}s1 limine.cfg ::
 mcopy -i ${dev_mount}s1 startup.nsh ::
-mcopy -i ${dev_mount}s1 FoxOS-kernel/bin/foxkrnl.elf ::/EFI/FOXOS
+mcopy -i ${dev_mount}s1 FoxOS-kernel/bin/* ::/EFI/FOXOS
 
 mmd -i ${dev_mount}s1 ::/BIN
-mcopy -i ${dev_mount}s1 FoxOS-programs/bin/test.elf ::/BIN
-mcopy -i ${dev_mount}s1 FoxOS-programs/bin/terminal.elf ::/BIN
+mcopy -i ${dev_mount}s1 FoxOS-programs/bin/* ::/BIN
 
 hdiutil detach ${dev_mount}
 

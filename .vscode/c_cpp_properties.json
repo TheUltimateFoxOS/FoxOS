@@ -3,8 +3,9 @@
         {
             "name": "FoxOS",
             "includePath": [
-                "${workspaceFolder}/FoxOS-kernel/src/include/**",
-                "${workspaceFolder}/FoxOS-programs/libc/include/**"
+                "${workspaceFolder}/FoxOS-kernel/core/include/**",
+                "${workspaceFolder}/FoxOS-programs/libc/include/**",
+                "${workspaceFolder}/FoxOS-kernel/ps2_keyboard/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
