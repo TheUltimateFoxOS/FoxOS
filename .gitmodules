@@ -1,3 +1,6 @@
 [submodule "FoxOS-programs"]
 	path = FoxOS-programs
 	url = https://github.com/TheUltimateFoxOS/FoxOS-programs
+[submodule "FoxOS-kernel"]
+	path = FoxOS-programs
+	url = https://github.com/TheUltimateFoxOS/horizon
