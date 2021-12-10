@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/FoxOS-kernel/core/include/**",
                 "${workspaceFolder}/FoxOS-programs/libc/include/**",
-                "${workspaceFolder}/FoxOS-kernel/ps2_keyboard/include"
+                "${workspaceFolder}/FoxOS-kernel/devices/ahci/include",
+                "${workspaceFolder}/FoxOS-kernel/devices/ps2_keyboard/include",
+                "${workspaceFolder}/FoxOS-kernel/devices/ata/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
