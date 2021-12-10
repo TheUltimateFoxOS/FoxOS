@@ -51,6 +51,9 @@ run-vnc-bios: img
 screenshot:
 	echo "(make run-vnc  &>/dev/null & disown; sleep 45; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
 
+screenshot-bios:
+	echo "(make run-vnc-bios  &>/dev/null & disown; sleep 45; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
+
 clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-programs clean
@@ -66,7 +69,7 @@ usb: all ./tmp/limine
 	mkdir -p $$usb_path/EFI/FOXOS; \
 	mkdir -p $$usb_path/BIN; \
 	cp ./tmp/limine/BOOTX64.EFI $$usb_path/EFI/BOOT/BOOTX64.EFI; \
-	cp FoxOS-kernel/bin/foxkrnl.elf $$usb_path/EFI/FOXOS/.; \
+	cp FoxOS-kernel/bin/* $$usb_path/EFI/FOXOS/.; \
 	cp limine.cfg $$usb_path/limine.cfg; \
 	cp startup.nsh $$usb_path/startup.nsh; \
 	cp FoxOS-programs/bin/test.elf $$usb_path/BIN/.;

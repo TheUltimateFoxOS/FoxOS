@@ -1,0 +1,33 @@
+name: Automatic Release
+
+on:
+  push:
+    branches: [ horizon ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [self-hosted, Linux, X64]
+
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        submodules: recursive
+    - name: make
+      run: |
+        make clean -i
+        make img vmdk vdi qcow2
+        echo usb | make usb
+        zip -r usb.zip usb/*
+        make screenshot
+    - uses: actions/upload-artifact@v2
+      with:
+        name: "horizon-{{ github.event.head_commit.id | truncate(7, true) }}"
+        path: | 
+            foxos.img
+            foxos.vmdk
+            foxos.vdi
+            foxos.qcow2
+            foxos.jpg
+            usb.zip
