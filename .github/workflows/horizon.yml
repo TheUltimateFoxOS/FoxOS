@@ -20,10 +20,10 @@ jobs:
         make img vmdk vdi qcow2
         echo usb | make usb
         zip -r usb.zip usb/*
-        make screenshot
+        make screenshot-bios
     - uses: actions/upload-artifact@v2
       with:
-        name: "horizon-{{ github.event.head_commit.id | truncate(7, true) }}"
+        name: "horizon"
         path: | 
             foxos.img
             foxos.vmdk
