@@ -1,23 +1,23 @@
 {
-    "configurations": [
-        {
-            "name": "FoxOS",
-            "includePath": [
-                "${workspaceFolder}/FoxOS-kernel/core/include/**",
-                "${workspaceFolder}/FoxOS-programs/libc/include/**",
+	"configurations": [
+		{
+			"name": "FoxOS",
+			"includePath": [
+				"${workspaceFolder}/FoxOS-kernel/core/include/**",
+				"${workspaceFolder}/FoxOS-programs/libc/include/**",
 
-                "${workspaceFolder}/FoxOS-kernel/devices/ahci/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/ps2_keyboard/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/ata/include",
+				"${workspaceFolder}/FoxOS-kernel/devices/ahci/include",
+				"${workspaceFolder}/FoxOS-kernel/devices/ps2_keyboard/include",
+				"${workspaceFolder}/FoxOS-kernel/devices/ata/include",
 				"${workspaceFolder}/FoxOS-kernel/devices/cmos/include",
 
 				"${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include"
 			],
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "gnu11",
-            "cppStandard": "gnu++14"
-        }
-    ],
-    "version": 4
+			"intelliSenseMode": "gcc-x64",
+			"compilerPath": "/usr/bin/gcc",
+			"cStandard": "gnu11",
+			"cppStandard": "gnu++14"
+		}
+	],
+	"version": 4
 }
