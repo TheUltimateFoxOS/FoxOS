@@ -9,6 +9,17 @@
 		"*.tcc": "cpp",
 		"buffer": "cpp",
 		"limits": "cpp",
-		"type_traits": "cpp"
+		"type_traits": "cpp",
+		"disk.h": "c",
+		"ff.h": "c",
+		"diskio.h": "c",
+		"istream": "c",
+		"__bit_reference": "c",
+		"algorithm": "c",
+		"bitset": "c",
+		"chrono": "c",
+		"unordered_map": "c",
+		"cstring": "cpp",
+		"ratio": "cpp"
 	}
 }
