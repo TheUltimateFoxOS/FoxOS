@@ -20,6 +20,7 @@
 		"chrono": "c",
 		"unordered_map": "c",
 		"cstring": "cpp",
-		"ratio": "cpp"
+		"ratio": "cpp",
+		"complex": "cpp"
 	}
 }
