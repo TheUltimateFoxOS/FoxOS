@@ -21,6 +21,9 @@
 		"unordered_map": "c",
 		"cstring": "cpp",
 		"ratio": "cpp",
-		"complex": "cpp"
+		"complex": "cpp",
+		"array": "cpp",
+		"tuple": "cpp",
+		"utility": "cpp"
 	}
 }
