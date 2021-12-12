@@ -24,6 +24,7 @@
 		"complex": "cpp",
 		"array": "cpp",
 		"tuple": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"stdio.h": "c"
 	}
 }
