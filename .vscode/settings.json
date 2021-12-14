@@ -25,6 +25,8 @@
 		"array": "cpp",
 		"tuple": "cpp",
 		"utility": "cpp",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"mkdir.h": "c",
+		"delete.h": "c"
 	}
 }
