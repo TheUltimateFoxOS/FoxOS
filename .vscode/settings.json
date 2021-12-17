@@ -27,6 +27,20 @@
 		"utility": "cpp",
 		"stdio.h": "c",
 		"mkdir.h": "c",
-		"delete.h": "c"
+		"delete.h": "c",
+		"ctime": "cpp",
+		"rope": "cpp",
+		"slist": "cpp",
+		"iomanip": "cpp",
+		"numeric": "cpp",
+		"ranges": "cpp",
+		"shared_mutex": "cpp",
+		"streambuf": "cpp",
+		"*.def": "cpp",
+		"io_context": "c",
+		"internet": "c",
+		"typeindex": "c",
+		"typeinfo": "c",
+		"cmath": "c"
 	}
 }
