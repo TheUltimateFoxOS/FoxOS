@@ -18,6 +18,9 @@ jobs:
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
+    - name: Delete mujs if exists
+      run: |
+        rm -rf FoxOS-programs/mujs/mujs
     - name: make
       run: |
         make clean -i
