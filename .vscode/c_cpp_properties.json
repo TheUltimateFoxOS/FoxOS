@@ -16,6 +16,7 @@
 				"${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
 
 				"${workspaceFolder}/FoxOS-programs/terminal/include",
+				"${workspaceFolder}/FoxOS-programs/bas/include",
 				"${workspaceFolder}/FoxOS-programs/libc/include/**"
             ],
             "intelliSenseMode": "gcc-x64",

@@ -35,15 +35,21 @@ mkfs.vfat -F 32 /dev/loop${dev_mount}p1
 mmd -i /dev/loop${dev_mount}p1 ::/EFI
 mmd -i /dev/loop${dev_mount}p1 ::/EFI/BOOT
 mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS
+mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS/RES
+mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS/MODULES
+mmd -i /dev/loop${dev_mount}p1 ::/BIN
 
-mcopy -i /dev/loop${dev_mount}p1 ./tmp/limine/limine.sys ::
-mcopy -i /dev/loop${dev_mount}p1 ./tmp/limine/BOOTX64.EFI ::/EFI/BOOT
+mcopy -i /dev/loop${dev_mount}p1 tmp/limine/limine.sys ::
+mcopy -i /dev/loop${dev_mount}p1 tmp/limine/BOOTX64.EFI ::/EFI/BOOT
 mcopy -i /dev/loop${dev_mount}p1 limine.cfg ::
 mcopy -i /dev/loop${dev_mount}p1 startup.nsh ::
-mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/* ::/EFI/FOXOS
 
-mmd -i /dev/loop${dev_mount}p1 ::/BIN
+mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.elf ::/EFI/FOXOS
+mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.o ::/EFI/FOXOS/MODULES
+
 mcopy -i /dev/loop${dev_mount}p1 FoxOS-programs/bin/* ::/BIN
+
+mcopy -i /dev/loop${dev_mount}p1 resources/* ::/EFI/FOXOS/RES
 
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' u ${dev_mount}

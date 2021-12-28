@@ -18,7 +18,7 @@ img: all ./tmp/limine
 	sh disk.sh $(FOX_GCC_PATH)
 
 mac-img: all ./tmp/limine
-	sh mac-disk.sh $(FOX_GCC_PATH)
+	sh disk-macos.sh $(FOX_GCC_PATH)
 
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
