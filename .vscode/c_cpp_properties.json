@@ -4,20 +4,17 @@
             "name": "FoxOS",
             "includePath": [
                 "${workspaceFolder}/FoxOS-kernel/core/include/**",
-				
                 "${workspaceFolder}/FoxOS-kernel/devices/ahci/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ps2_keyboard/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ata/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/cmos/include",
-
                 "${workspaceFolder}/FoxOS-kernel/devices/am79C973/include",
-				"${workspaceFolder}/FoxOS-kernel/devices/e1000/include",
-
-				"${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
-
-				"${workspaceFolder}/FoxOS-programs/terminal/include",
-				"${workspaceFolder}/FoxOS-programs/bas/include",
-				"${workspaceFolder}/FoxOS-programs/libc/include/**"
+                "${workspaceFolder}/FoxOS-kernel/devices/e1000/include",
+                "${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
+                "${workspaceFolder}/FoxOS-programs/terminal/include",
+                "${workspaceFolder}/FoxOS-programs/bas/include",
+                "${workspaceFolder}/FoxOS-programs/libc/include/**",
+                "${workspaceFolder}/FoxOS-programs/calc/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",

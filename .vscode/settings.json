@@ -41,6 +41,8 @@
 		"internet": "c",
 		"typeindex": "c",
 		"typeinfo": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"lexer.h": "c",
+		"dynamic_array.h": "c"
 	}
 }
