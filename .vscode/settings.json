@@ -41,6 +41,13 @@
 		"internet": "c",
 		"typeindex": "c",
 		"typeinfo": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"__hash_table": "cpp",
+		"__split_buffer": "cpp",
+		"initializer_list": "cpp",
+		"iterator": "cpp",
+		"string": "cpp",
+		"string_view": "cpp",
+		"vector": "cpp"
 	}
 }
