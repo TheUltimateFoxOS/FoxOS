@@ -42,6 +42,7 @@
 		"typeindex": "c",
 		"typeinfo": "c",
 		"cmath": "c",
+<<<<<<< HEAD
 		"__hash_table": "cpp",
 		"__split_buffer": "cpp",
 		"initializer_list": "cpp",
@@ -49,5 +50,9 @@
 		"string": "cpp",
 		"string_view": "cpp",
 		"vector": "cpp"
+=======
+		"lexer.h": "c",
+		"dynamic_array.h": "c"
+>>>>>>> 7a343a44620029bc3b7be8b98aba961b0b24783d
 	}
 }
