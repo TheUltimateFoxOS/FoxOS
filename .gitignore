@@ -4,6 +4,7 @@ foxos.vmdk
 foxos.vdi
 foxos.qcow2
 foxos.jpg
+foxos2.img
 tmp/**
 .toolchain/**
 

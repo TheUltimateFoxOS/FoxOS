@@ -43,6 +43,8 @@ mcopy -i /dev/loop${dev_mount}p1 tmp/limine/limine.sys ::
 mcopy -i /dev/loop${dev_mount}p1 tmp/limine/BOOTX64.EFI ::/EFI/BOOT
 mcopy -i /dev/loop${dev_mount}p1 limine.cfg ::
 mcopy -i /dev/loop${dev_mount}p1 startup.nsh ::
+mcopy -i /dev/loop${dev_mount}p1 LICENSE ::
+mcopy -i /dev/loop${dev_mount}p1 dn.fox ::
 
 mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.elf ::/EFI/FOXOS
 mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.o ::/EFI/FOXOS/MODULES
@@ -61,3 +63,7 @@ cd tmp/limine/
 make limine-install
 cd ../../
 ./tmp/limine/limine-install foxos.img
+
+
+dd if=/dev/zero of=foxos2.img bs=512 count=93750
+mkfs.vfat -F 32 foxos2.img

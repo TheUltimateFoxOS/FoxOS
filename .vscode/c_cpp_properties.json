@@ -14,7 +14,8 @@
                 "${workspaceFolder}/FoxOS-programs/terminal/include",
                 "${workspaceFolder}/FoxOS-programs/bas/include",
                 "${workspaceFolder}/FoxOS-programs/libc/include/**",
-                "${workspaceFolder}/FoxOS-programs/calc/include"
+                "${workspaceFolder}/FoxOS-programs/calc/include",
+                "${workspaceFolder}/FoxOS-programs/install/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",

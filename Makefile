@@ -1,5 +1,8 @@
-QEMUFLAGS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device pcnet,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
-QEMUFLAGS_BIOS = -machine q35 -smp 4 -drive file=foxos.img -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device e1000,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device pcnet,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=foxos.img -drive file=foxos2.img
+
+QEMUFLAGS_BIOS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device e1000,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.img
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
@@ -46,6 +49,9 @@ run-dbg-bios: img
 
 run-vnc-bios: img
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
+
+run-foxos2:
+	qemu-system-x86_64 $(QEMUFLAGS_RAW) -drive file=foxos2.img
 
 screenshot:
 	echo "(make run-vnc  &>/dev/null & disown; sleep 45; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
