@@ -2,7 +2,7 @@ name: Automatic Release
 
 on:
   push:
-    branches: [ horizon ]
+    branches: [ main ]
     
   workflow_dispatch:
 
@@ -28,9 +28,12 @@ jobs:
         echo usb | make usb
         zip -r usb.zip usb/*
         make screenshot-bios
-    - uses: actions/upload-artifact@v2
+    - uses:  marvinpinto/action-automatic-releases@latest
       with:
-        name: "horizon"
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
         path: | 
             foxos.img
             foxos.vmdk
