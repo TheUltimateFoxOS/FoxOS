@@ -34,7 +34,7 @@ jobs:
         automatic_release_tag: "latest"
         prerelease: true
         title: "Development Build"
-        path: | 
+        files: | 
             foxos.img
             foxos.vmdk
             foxos.vdi
