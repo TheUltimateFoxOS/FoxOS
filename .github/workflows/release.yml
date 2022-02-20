@@ -2,7 +2,7 @@ name: Automatic Release
 
 on:
   push:
-    branches: [ main ]
+    branches: [ old_main ]
     
   workflow_dispatch:
 
@@ -21,13 +21,10 @@ jobs:
         echo usb | make usb
         zip -r usb.zip usb/*
         make screenshot
-    - uses: marvinpinto/action-automatic-releases@latest
+    - uses: actions/upload-artifact@v2
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "latest"
-        prerelease: true
-        title: "Development Build"
-        files: | 
+        name: "old version"
+        path: | 
             foxos.img
             foxos.vmdk
             foxos.vdi
