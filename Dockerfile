@@ -60,6 +60,10 @@ RUN sh configure --prefix="$PREFIX"
 RUN make nasm -j $CORES
 RUN mv nasm $PREFIX/bin/$PROG_PREFIX"nasm" -v
 
+# needed for mujs patching
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"
+
 WORKDIR /root
 
 ENTRYPOINT /bin/bash
