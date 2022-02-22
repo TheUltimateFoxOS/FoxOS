@@ -32,7 +32,6 @@ RUN make install
 
 WORKDIR /.toolchain/tmp/gcc-10.2.0
 
-
 RUN ./contrib/download_prerequisites
 RUN echo "MULTILIB_OPTIONS += mno-red-zone" > gcc/config/i386/t-x86_64-elf
 RUN echo "MULTILIB_DIRNAMES += no-red-zone" >> gcc/config/i386/t-x86_64-elf
@@ -59,6 +58,9 @@ RUN sh configure --prefix="$PREFIX"
 
 RUN make nasm -j $CORES
 RUN mv nasm $PREFIX/bin/$PROG_PREFIX"nasm" -v
+
+RUN rm -rf /.toolchain
+RUN apt install kpartx -y
 
 # needed for mujs patching
 RUN git config --global user.email "you@example.com"
