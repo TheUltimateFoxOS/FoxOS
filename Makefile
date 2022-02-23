@@ -79,6 +79,9 @@ usb: all ./tmp/limine
 	cp ./tmp/limine/BOOTX64.EFI $$usb_path/EFI/BOOT/BOOTX64.EFI; \
 	cp FoxOS-kernel/bin/* $$usb_path/EFI/FOXOS/.; \
 	cp limine.cfg $$usb_path/limine.cfg; \
+	cp cfg.fox $$usb_path/cfg.fox; \
+	cp dn.fox $$usb_path/dn.fox; \
+	cp start.fox $$usb_path/start.fox; \
 	cp startup.nsh $$usb_path/startup.nsh; \
 	cp FoxOS-programs/bin/* $$usb_path/BIN/.;
 
