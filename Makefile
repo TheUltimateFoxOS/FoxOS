@@ -23,6 +23,9 @@ img: all ./tmp/limine
 mac-img: all ./tmp/limine
 	sh disk-macos.sh $(FOX_GCC_PATH)
 
+docker-img: all ./tmp/limine
+	sh disk-docker.sh $(FOX_GCC_PATH)
+
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
 
