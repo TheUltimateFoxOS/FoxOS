@@ -33,6 +33,8 @@ mcopy -i ${dev_mount}s1 tmp/limine/BOOTX64.EFI ::/EFI/BOOT
 mcopy -i ${dev_mount}s1 limine.cfg ::
 mcopy -i ${dev_mount}s1 startup.nsh ::
 mcopy -i ${dev_mount}s1 dn.fox ::
+mcopy -i ${dev_mount}s1 cfg.fox ::
+mcopy -i ${dev_mount}s1 start.fox ::
 
 mcopy -i ${dev_mount}s1 FoxOS-kernel/bin/*.elf ::/EFI/FOXOS
 mcopy -i ${dev_mount}s1 FoxOS-kernel/bin/*.o ::/EFI/FOXOS/MODULES

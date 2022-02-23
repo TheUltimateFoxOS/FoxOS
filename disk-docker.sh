@@ -32,6 +32,7 @@ mcopy -i /dev/mapper/${dev_mount}p1 startup.nsh ::
 mcopy -i /dev/mapper/${dev_mount}p1 LICENSE ::
 mcopy -i /dev/mapper/${dev_mount}p1 dn.fox ::
 mcopy -i /dev/mapper/${dev_mount}p1 cfg.fox ::
+mcopy -i /dev/mapper/${dev_mount}p1 start.fox ::
 
 mcopy -i /dev/mapper/${dev_mount}p1 FoxOS-kernel/bin/*.elf ::/EFI/FOXOS
 mcopy -i /dev/mapper/${dev_mount}p1 FoxOS-kernel/bin/*.o ::/EFI/FOXOS/MODULES
