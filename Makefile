@@ -1,4 +1,4 @@
-QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device e1000,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device e1000,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=foxos.img -drive file=foxos2.img
 
 QEMUFLAGS_BIOS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device e1000,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
@@ -17,14 +17,20 @@ all:
 	@mkdir -p ./tmp/limine
 	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary ./tmp/limine
 
+./tmp/ovmf:
+	@echo "Downloading OVMF!"
+	@mkdir -p ./tmp/ovmf
+	@wget https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_CODE-pure-efi.fd -O ./tmp/ovmf/OVMF_CODE-pure-efi.fd
+	@wget https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_VARS-pure-efi.fd -O ./tmp/ovmf/OVMF_VARS-pure-efi.fd
+
 img: all ./tmp/limine
-	sh disk.sh $(FOX_GCC_PATH)
+	sh tools/disk_linux.sh $(FOX_GCC_PATH)
 
 mac-img: all ./tmp/limine
-	sh disk-macos.sh $(FOX_GCC_PATH)
+	sh tools/disk_macos.sh $(FOX_GCC_PATH)
 
 docker-img: all ./tmp/limine
-	sh disk-docker.sh $(FOX_GCC_PATH)
+	sh tools/disk_docker.sh $(FOX_GCC_PATH)
 
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
@@ -35,13 +41,13 @@ vdi: img
 qcow2: img
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
 
-run: img
+run: img ./tmp/ovmf
 	qemu-system-x86_64 $(QEMUFLAGS)
 
-run-dbg: img
+run-dbg: img ./tmp/ovmf
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS) -s -S
 
-run-vnc: img
+run-vnc: img ./tmp/ovmf
 	qemu-system-x86_64 $(QEMUFLAGS) -vnc :1
 
 run-bios: img
@@ -53,7 +59,7 @@ run-dbg-bios: img
 run-vnc-bios: img
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
 
-run-foxos2:
+run-foxos2: ./tmp/ovmf
 	qemu-system-x86_64 $(QEMUFLAGS_RAW) -drive file=foxos2.img
 
 screenshot:
@@ -73,14 +79,7 @@ debug:
 
 usb: all ./tmp/limine
 	@read -p "Enter path to usb >> " usb_path; \
-	mkdir -p $$usb_path/EFI/BOOT; \
-	mkdir -p $$usb_path/EFI/FOXOS; \
-	mkdir -p $$usb_path/BIN; \
-	cp ./tmp/limine/BOOTX64.EFI $$usb_path/EFI/BOOT/BOOTX64.EFI; \
-	cp FoxOS-kernel/bin/* $$usb_path/EFI/FOXOS/.; \
-	cp limine.cfg $$usb_path/limine.cfg; \
-	cp startup.nsh $$usb_path/startup.nsh; \
-	cp FoxOS-programs/bin/* $$usb_path/BIN/.;
+	bash tools/disk_generic.sh $$usb_path
 
 losetup:
 	gcc -xc -o losetup.elf losetup.c

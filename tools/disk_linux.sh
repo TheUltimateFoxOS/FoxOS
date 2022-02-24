@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash tools/disk_generic.sh disk_root
+
 dd if=/dev/zero of=foxos.img bs=512 count=93750
 
 echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img' | sh
@@ -32,28 +34,7 @@ echo Mounted disk as /dev/loop${dev_mount}
 
 mkfs.vfat -F 32 /dev/loop${dev_mount}p1
 
-mmd -i /dev/loop${dev_mount}p1 ::/EFI
-mmd -i /dev/loop${dev_mount}p1 ::/EFI/BOOT
-mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS
-mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS/RES
-mmd -i /dev/loop${dev_mount}p1 ::/EFI/FOXOS/MODULES
-mmd -i /dev/loop${dev_mount}p1 ::/BIN
-
-mcopy -i /dev/loop${dev_mount}p1 tmp/limine/limine.sys ::
-mcopy -i /dev/loop${dev_mount}p1 tmp/limine/BOOTX64.EFI ::/EFI/BOOT
-mcopy -i /dev/loop${dev_mount}p1 limine.cfg ::
-mcopy -i /dev/loop${dev_mount}p1 startup.nsh ::
-mcopy -i /dev/loop${dev_mount}p1 LICENSE ::
-mcopy -i /dev/loop${dev_mount}p1 dn.fox ::
-mcopy -i /dev/loop${dev_mount}p1 cfg.fox ::
-mcopy -i /dev/loop${dev_mount}p1 start.fox ::
-
-mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.elf ::/EFI/FOXOS
-mcopy -i /dev/loop${dev_mount}p1 FoxOS-kernel/bin/*.o ::/EFI/FOXOS/MODULES
-
-mcopy -i /dev/loop${dev_mount}p1 FoxOS-programs/bin/* ::/BIN
-
-mcopy -i /dev/loop${dev_mount}p1 resources/* ::/EFI/FOXOS/RES
+mcopy -s -i /dev/loop${dev_mount}p1 disk_root/* ::
 
 if [ -f $PREFIX'/bin/'$PROG_PREFIX'losetup' ]; then
 	$PREFIX'/bin/'$PROG_PREFIX'losetup' u ${dev_mount}

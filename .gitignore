@@ -7,5 +7,5 @@ foxos.jpg
 foxos2.img
 tmp/**
 .toolchain/**
-
+disk_root
 dump.dat
