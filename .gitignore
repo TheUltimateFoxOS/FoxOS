@@ -1,11 +1,14 @@
-# Built files
-foxos.img
-foxos.vmdk
-foxos.vdi
-foxos.qcow2
-foxos.jpg
-foxos2.img
-tmp/**
-.toolchain/**
-disk_root
-dump.dat
+# Build files
+/foxos.img
+/foxos.vmdk
+/foxos.vdi
+/foxos.qcow2
+/foxos.jpg
+/foxos2.img
+
+/tmp/**
+/.toolchain/
+/disk_root/
+
+# Run files
+/dump.dat

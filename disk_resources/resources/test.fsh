@@ -3,7 +3,7 @@ export y=world
 
 echo $x, $y
 
-export cat_path=/EFI/FOXOS/RES/TOOSMALL.txt
+export cat_path=/RES/test.fsh
 
 cat $ROOT_FS$cat_path
 
