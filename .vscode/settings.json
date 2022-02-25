@@ -48,6 +48,7 @@
 		"stdlib.h": "c",
 		"dir_at.h": "c",
 		"get_file_size.h": "c",
-		"string.h": "c"
+		"string.h": "c",
+		"net.h": "c"
 	}
 }
