@@ -15,7 +15,8 @@
                 "${workspaceFolder}/FoxOS-programs/libc/include/**",
                 "${workspaceFolder}/FoxOS-programs/calc/include",
                 "${workspaceFolder}/FoxOS-programs/install/include",
-                "${workspaceFolder}/FoxOS-programs/init/include"
+                "${workspaceFolder}/FoxOS-programs/init/include",
+                "${workspaceFolder}/keymap_tool/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
