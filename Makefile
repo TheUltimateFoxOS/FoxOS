@@ -20,8 +20,8 @@ all:
 ./tmp/ovmf:
 	@echo "Downloading OVMF!"
 	@mkdir -p ./tmp/ovmf
-	@wget https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_CODE-pure-efi.fd -O ./tmp/ovmf/OVMF_CODE-pure-efi.fd
-	@wget https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_VARS-pure-efi.fd -O ./tmp/ovmf/OVMF_VARS-pure-efi.fd
+	@curl -L https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_CODE-pure-efi.fd -o ./tmp/ovmf/OVMF_CODE-pure-efi.fd
+	@curl -L https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_VARS-pure-efi.fd -o ./tmp/ovmf/OVMF_VARS-pure-efi.fd
 
 img: all ./tmp/limine
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
