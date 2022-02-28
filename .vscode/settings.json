@@ -51,6 +51,7 @@
 		"string.h": "c",
 		"net.h": "c",
 		"limine-hdd.h": "c",
-		"random": "c"
+		"random": "c",
+		"filesystem": "c"
 	}
 }
