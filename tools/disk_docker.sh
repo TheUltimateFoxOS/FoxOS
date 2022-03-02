@@ -33,5 +33,6 @@ cd ../../
 dd if=/dev/zero of=/root/foxos2.img bs=512 count=93750
 mkfs.vfat -F 32 /root/foxos2.img
 
+echo Copying image files...
 mv /root/foxos.img ./
 mv /root/foxos2.img ./

@@ -1,4 +1,7 @@
 {
+	"C_Cpp.default.systemIncludePath": [
+		"/dev/zero"
+	],
 	"files.associations": {
 		"*.inc": "cpp",
 		"charconv": "cpp",
@@ -52,6 +55,13 @@
 		"net.h": "c",
 		"limine-hdd.h": "c",
 		"random": "c",
-		"filesystem": "c"
+		"filesystem": "c",
+		"argv_tools.h": "c",
+		"env.h": "c",
+		"spawn.h": "c",
+		"stdint.h": "c",
+		"stddef.h": "c",
+		"stdarg.h": "c",
+		"test_piping.h": "c"
 	}
 }

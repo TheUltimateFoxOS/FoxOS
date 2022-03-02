@@ -12,11 +12,11 @@
                 "${workspaceFolder}/FoxOS-kernel/devices/e1000/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
                 "${workspaceFolder}/FoxOS-programs/terminal/include",
+                "${workspaceFolder}/FoxOS-programs/test/include",
                 "${workspaceFolder}/FoxOS-programs/libc/include/**",
                 "${workspaceFolder}/FoxOS-programs/calc/include",
                 "${workspaceFolder}/FoxOS-programs/install/include",
                 "${workspaceFolder}/FoxOS-programs/init/include",
-                "${workspaceFolder}/keymap_tool/include",
                 "${workspaceFolder}/FoxOS-programs/limine_install/include"
             ],
             "intelliSenseMode": "gcc-x64",
