@@ -62,6 +62,7 @@
 		"stdint.h": "c",
 		"stddef.h": "c",
 		"stdarg.h": "c",
-		"test_piping.h": "c"
+		"test_piping.h": "c",
+		"write.h": "c"
 	}
 }
