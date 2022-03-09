@@ -75,7 +75,7 @@ clean:
 	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
 
 debug:
-	deno run --allow-run debug.js
+	deno run --allow-run tools/debug.js
 
 usb: all ./tmp/limine
 	@read -p "Enter path to usb >> " usb_path; \
