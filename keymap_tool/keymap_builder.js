@@ -72,7 +72,14 @@ function jsonToKeymap(contents) {
             const key = "0x" + key_id.toString(16);
 
             if (contents[keymap].hasOwnProperty(key)) { //If the key doesn't exist, we skip it
-                out[key_id + offset] = contents[keymap][key].charCodeAt(0);
+				if (contents[keymap][key].length == 1) {
+                	out[key_id + offset] = contents[keymap][key].charCodeAt(0);
+				} else if (contents[keymap][key].startsWith("@")) {
+					out[key_id + offset] = parseInt(contents[keymap][key].substring(1), 10);
+				} else {
+					console.log("Invalid keymap: " + key);
+					Deno.exit(1);
+				}
             }
         }
 
