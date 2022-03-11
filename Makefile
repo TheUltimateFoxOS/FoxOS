@@ -32,6 +32,9 @@ mac-img: all ./tmp/limine
 docker-img: all ./tmp/limine
 	sh tools/disk_docker.sh $(FOX_GCC_PATH)
 
+no-gpt-img: all ./tmp/limine
+	sh tools/disk_no_gpt.sh $(FOX_GCC_PATH)
+
 vmdk: img
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
 
