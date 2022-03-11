@@ -19,7 +19,8 @@
                 "${workspaceFolder}/FoxOS-programs/init/include",
                 "${workspaceFolder}/FoxOS-programs/limine_install/include",
                 "${workspaceFolder}/FoxOS-programs/libterm/include",
-                "${workspaceFolder}/FoxOS-programs/lolcat/include"
+                "${workspaceFolder}/FoxOS-programs/lolcat/include",
+                "${workspaceFolder}/FoxOS-programs/foxt/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
