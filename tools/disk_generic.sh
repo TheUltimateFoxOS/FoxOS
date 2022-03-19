@@ -3,6 +3,8 @@
 function build_disk_structure {
 	echo "Creating disk structure in $1..."
 
+	rm -rf $1
+
 	mkdir -p $1/{FOXCFG,RES,BOOT,BOOT/MODULES,EFI,BIN,EFI/BOOT}
 
 	cp disk_resources/limine.cfg $1/
@@ -20,6 +22,17 @@ function build_disk_structure {
 
 	cp tmp/limine/limine.sys $1
 	cp tmp/limine/BOOTX64.EFI $1/EFI/BOOT
+
+	(
+		cd tmp/saf
+		make
+	)
+
+	./tmp/saf/saf-make $1 initrd_full.saf
+	./tmp/saf/saf-make $1/BOOT/MODULES initrd.saf
+
+	mv initrd_full.saf $1/BOOT/
+	mv initrd.saf $1/BOOT/
 
 	echo "Done."
 }

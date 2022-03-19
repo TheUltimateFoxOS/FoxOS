@@ -23,16 +23,21 @@ all:
 	@curl -L https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_CODE-pure-efi.fd -o ./tmp/ovmf/OVMF_CODE-pure-efi.fd
 	@curl -L https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_VARS-pure-efi.fd -o ./tmp/ovmf/OVMF_VARS-pure-efi.fd
 
-img: all ./tmp/limine
+./tmp/saf:
+	@echo "Downloading saf"
+	@mkdir -p ./tmp/saf
+	@git clone https://github.com/chocabloc/saf.git ./tmp/saf
+
+img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
 
-mac-img: all ./tmp/limine
+mac-img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_macos.sh $(FOX_GCC_PATH)
 
-docker-img: all ./tmp/limine
+docker-img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_docker.sh $(FOX_GCC_PATH)
 
-no-gpt-img: all ./tmp/limine
+no-gpt-img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_no_gpt.sh $(FOX_GCC_PATH)
 
 vmdk: img
