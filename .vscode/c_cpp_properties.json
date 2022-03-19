@@ -21,7 +21,8 @@
                 "${workspaceFolder}/FoxOS-programs/libterm/include",
                 "${workspaceFolder}/FoxOS-programs/lolcat/include",
                 "${workspaceFolder}/FoxOS-programs/foxt/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include"
+                "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
+                "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
