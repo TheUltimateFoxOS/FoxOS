@@ -1,0 +1,34 @@
+Foxe Cheatsheet:
+
+To do anything else than just writing and deleting chars use <ESC> to go into edit mode.
+You should see that the mode in the statusbar has changed now. You can now use all the commands listed below!
+
+Moving around:
+    w - up a line 
+    s - down a line
+    a - left one char              #
+    d - right one char
+
+    W - to the top
+    S - to the bottom
+    A - to start of line
+    D - to end of line
+
+    l + <user input> - go to specific line
+
+Editing:
+    r + <user input> - replace char
+    
+    c - copy word
+    x - cut word
+    
+    C - copy line
+    X - cut line
+
+    v - paste
+
+Other:
+    q - quits the editor
+
+    + - save
+    - - discard changes

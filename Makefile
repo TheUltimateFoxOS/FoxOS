@@ -44,7 +44,7 @@ vdi: img
 qcow2: img
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
 
-run: img ./tmp/ovmf
+run: ./tmp/ovmf
 	qemu-system-x86_64 $(QEMUFLAGS)
 
 run-dbg: img ./tmp/ovmf
