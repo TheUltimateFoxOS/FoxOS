@@ -111,3 +111,30 @@ vbox-setup:
 run-vbox: qcow2
 	vboxmanage startvm --putenv VBOX_GUI_DBG_ENABLED=true $(FOXOS_VM_NAME)
 	watch -n 0.1 tail /tmp/vbox.log -n $(shell echo $(shell tput lines) - 1 | bc)
+
+
+build_headers:
+	mkdir -p ./tmp/headers
+	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/
+	cp -r FoxOS-programs/libterm/include/ ./tmp/headers/libterm/
+	cp -r FoxOS-kernel/core/include/ ./tmp/headers/kernel/
+
+sdk: all build_headers ./tmp/saf ./tmp/limine
+	mkdir -p ./tmp/sdk
+	cp -r ./tmp/headers ./tmp/sdk/
+	bash tools/disk_generic.sh ./tmp/sdk/disk
+
+	mkdir -p ./tmp/sdk/bin
+	cp -r ./tmp/saf/saf-make ./tmp/sdk/bin/saf-make
+
+	mkdir -p ./tmp/sdk/lib
+	cp -r ./FoxOS-programs/bin/libc.a ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libc.a.o ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libterm.a ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libterm.a.o ./tmp/sdk/lib/
+
+	cp -r sdk/* ./tmp/sdk/
+
+install_sdk: sdk
+	sudo mkdir -p /opt/foxos_sdk
+	sudo cp -r ./tmp/sdk/* /opt/foxos_sdk/
