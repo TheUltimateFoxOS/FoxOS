@@ -22,7 +22,9 @@
                 "${workspaceFolder}/FoxOS-programs/lolcat/include",
                 "${workspaceFolder}/FoxOS-programs/foxt/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include"
+                "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include",
+                "${workspaceFolder}/FoxOS-kernel/features/graphics/include",
+                "${workspaceFolder}/FoxOS-programs/libgraphics/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",

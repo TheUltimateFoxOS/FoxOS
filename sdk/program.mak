@@ -10,8 +10,8 @@ OBJS = $(patsubst %.c, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CPPSRC))
 
 TOOLCHAIN_BASE = /usr/local/foxos-x86_64_elf_gcc
 
-CFLAGS = -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I-I$(SDK_ROOT)/headers/libterm -Iinclude
-LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libterm.a.o
+CFLAGS = -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libterm -I$(SDK_ROOT)/headers/libgraphics -Iinclude
+LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libterm.a.o $(SDK_ROOT)/lib/libgraphics.a.o
 
 ifeq (,$(wildcard $(TOOLCHAIN_BASE)/bin/foxos-gcc))
 	CC = gcc
