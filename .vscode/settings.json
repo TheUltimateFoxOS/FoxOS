@@ -67,6 +67,7 @@
 		"term.h": "c",
 		"thread.h": "c",
 		"test_tasks.h": "c",
-		"sighandler.h": "c"
+		"sighandler.h": "c",
+		"test_graphics.h": "c"
 	}
 }
