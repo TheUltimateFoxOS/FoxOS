@@ -1,7 +1,7 @@
-QEMUFLAGS_RAW = -machine q35 -smp 2 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=foxos.img -drive file=foxos2.img
 
-QEMUFLAGS_BIOS_RAW = -machine q35 -smp 2 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_BIOS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.img
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
