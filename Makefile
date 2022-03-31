@@ -112,6 +112,18 @@ run-vbox: qcow2
 	vboxmanage startvm --putenv VBOX_GUI_DBG_ENABLED=true $(FOXOS_VM_NAME)
 	watch -n 0.1 tail /tmp/vbox.log -n $(shell echo $(shell tput lines) - 1 | bc)
 
+example_images:
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959117829704142858/unknown.png -L -o ./tmp/rickroll.png
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830010322964/unknown.png -L -o ./tmp/trollface.png
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830345855036/unknown.png -L -o ./tmp/buttercat.png
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830723346472/foxuwu.jpg -L -o ./tmp/fox.jpg
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959125477635809400/nagatoro.png -L -o ./tmp/nagatoro.png
+
+	python3 tools/img2fpic.py ./tmp/rickroll.png ./disk_resources/resources/rickroll.fpic
+	python3 tools/img2fpic.py ./tmp/trollface.png ./disk_resources/resources/trollface.fpic
+	python3 tools/img2fpic.py ./tmp/buttercat.png ./disk_resources/resources/buttercat.fpic
+	python3 tools/img2fpic.py ./tmp/fox.jpg ./disk_resources/resources/fox.fpic
+	python3 tools/img2fpic.py ./tmp/nagatoro.png ./disk_resources/resources/nagatoro.fpic
 
 build_headers:
 	mkdir -p ./tmp/headers

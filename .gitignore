@@ -10,5 +10,7 @@
 /.toolchain/
 /disk_root/
 
+/disk_resources/resources/*.fpic
+
 # Run files
 /dump.dat
