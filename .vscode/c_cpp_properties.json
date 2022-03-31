@@ -24,7 +24,8 @@
                 "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include",
                 "${workspaceFolder}/FoxOS-kernel/features/graphics/include",
-                "${workspaceFolder}/FoxOS-programs/libgraphics/include"
+                "${workspaceFolder}/FoxOS-programs/libgraphics/include",
+                "${workspaceFolder}/FoxOS-kernel/devices/pc_speaker/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
