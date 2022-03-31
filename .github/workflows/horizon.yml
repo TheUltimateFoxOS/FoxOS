@@ -24,9 +24,10 @@ jobs:
     - name: make
       run: |
         make clean -i
-        make img vmdk vdi qcow2
+        make img vmdk vdi qcow2 sdk
         echo usb | make usb
         zip -r usb.zip usb/*
+        zip -r sdk.zip tmp/sdk/*
         make screenshot-bios
     - uses:  marvinpinto/action-automatic-releases@latest
       with:
@@ -41,3 +42,4 @@ jobs:
             foxos.qcow2
             foxos.jpg
             usb.zip
+            sdk.zip
