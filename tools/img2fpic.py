@@ -6,6 +6,7 @@ from PIL import Image
 """
 binary structure
 
+uint64_t magic
 uint64_t width
 uint64_t height
 uint32_t[] data (in rgba format)
@@ -24,7 +25,7 @@ if __name__ == "__main__":
 	width = im.size[0]
 	height = im.size[1]
 
-	f.write(struct.pack("<QQ", width, height))
+	f.write(struct.pack("<QQQ", 0xc0ffebabe, width, height))
 
 	for y in range(height):
 		for x in range(width):

@@ -125,6 +125,8 @@ example_images:
 	python3 tools/img2fpic.py ./tmp/fox.jpg ./disk_resources/resources/fox.fpic
 	python3 tools/img2fpic.py ./tmp/nagatoro.png ./disk_resources/resources/nagatoro.fpic
 
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959476065829519380/test3.bmp -L -o ./disk_resources/resources/furry.bmp
+
 build_headers:
 	mkdir -p ./tmp/headers
 	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/

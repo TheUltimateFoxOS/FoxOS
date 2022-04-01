@@ -11,6 +11,7 @@
 /disk_root/
 
 /disk_resources/resources/*.fpic
+/disk_resources/resources/*.bmp
 
 # Run files
 /dump.dat
