@@ -131,10 +131,18 @@ example_music:
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841359880223/erika.txt -L -o ./tmp/erika.txt
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841548611615/katyusha.txt -L -o ./tmp/katyusha.txt
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841737363517/rickroll.txt -L -o ./tmp/rickroll.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959852424330375193/amogus.txt -L -o ./tmp/amogus.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959852424523288646/shinzou_wo_sasageyo.txt -L -o ./tmp/shinzou_wo_sasageyo.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959852424779149452/this_game.txt -L -o ./tmp/this_game.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959852424997249114/westerwald.txt -L -o ./tmp/westerwald.txt
 
 	deno run -A tools/cord_parse.js ./tmp/erika.txt ./disk_resources/examples/erika.fm
 	deno run -A tools/cord_parse.js ./tmp/katyusha.txt ./disk_resources/examples/katyusha.fm
 	deno run -A tools/cord_parse.js ./tmp/rickroll.txt ./disk_resources/examples/rickroll.fm
+	deno run -A tools/cord_parse.js ./tmp/amogus.txt ./disk_resources/examples/amogus.fm
+	deno run -A tools/cord_parse.js ./tmp/shinzou_wo_sasageyo.txt ./disk_resources/examples/shinzou_wo_sasageyo.fm
+	deno run -A tools/cord_parse.js ./tmp/this_game.txt ./disk_resources/examples/this_game.fm
+	deno run -A tools/cord_parse.js ./tmp/westerwald.txt ./disk_resources/examples/westerwald.fm
 
 examples:
 	make example_images
