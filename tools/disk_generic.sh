@@ -5,7 +5,7 @@ function build_disk_structure {
 
 	rm -rf $1
 
-	mkdir -p $1/{FOXCFG,RES,BOOT,BOOT/MODULES,EFI,BIN,EFI/BOOT}
+	mkdir -p $1/{FOXCFG,RES,BOOT,BOOT/MODULES,EFI,BIN,EFI/BOOT,EXAMPLES}
 
 	cp disk_resources/limine.cfg $1/
 	cp disk_resources/startup.nsh $1/
@@ -19,6 +19,7 @@ function build_disk_structure {
 
 	cp FoxOS-programs/bin/* $1/BIN/
 	cp disk_resources/resources/* $1/RES/
+	cp disk_resources/examples/* $1/EXAMPLES/
 
 	cp tmp/limine/limine.sys $1
 	cp tmp/limine/BOOTX64.EFI $1/EFI/BOOT

@@ -43,9 +43,9 @@ else
 fi
 
 cd tmp/limine/
-make limine-s2deploy
+make limine-deploy
 cd ../../
-./tmp/limine/limine-s2deploy foxos.img
+./tmp/limine/limine-deploy foxos.img
 
 
 dd if=/dev/zero of=foxos2.img bs=512 count=93750

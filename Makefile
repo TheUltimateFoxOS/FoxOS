@@ -15,7 +15,7 @@ all:
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=latest-binary ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
 
 ./tmp/ovmf:
 	@echo "Downloading OVMF!"
@@ -119,13 +119,26 @@ example_images:
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830723346472/foxuwu.jpg -L -o ./tmp/fox.jpg
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959125477635809400/nagatoro.png -L -o ./tmp/nagatoro.png
 
-	python3 tools/img2fpic.py ./tmp/rickroll.png ./disk_resources/resources/rickroll.fpic
-	python3 tools/img2fpic.py ./tmp/trollface.png ./disk_resources/resources/trollface.fpic
-	python3 tools/img2fpic.py ./tmp/buttercat.png ./disk_resources/resources/buttercat.fpic
-	python3 tools/img2fpic.py ./tmp/fox.jpg ./disk_resources/resources/fox.fpic
-	python3 tools/img2fpic.py ./tmp/nagatoro.png ./disk_resources/resources/nagatoro.fpic
+	python3 tools/img2fpic.py ./tmp/rickroll.png ./disk_resources/examples/rickroll.fpic
+	python3 tools/img2fpic.py ./tmp/trollface.png ./disk_resources/examples/trollface.fpic
+	python3 tools/img2fpic.py ./tmp/buttercat.png ./disk_resources/examples/buttercat.fpic
+	python3 tools/img2fpic.py ./tmp/fox.jpg ./disk_resources/examples/fox.fpic
+	python3 tools/img2fpic.py ./tmp/nagatoro.png ./disk_resources/examples/nagatoro.fpic
 
-	curl https://cdn.discordapp.com/attachments/805055812376330241/959476065829519380/test3.bmp -L -o ./disk_resources/resources/furry.bmp
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959476065829519380/test3.bmp -L -o ./disk_resources/examples/furry.bmp
+
+example_music:
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841359880223/erika.txt -L -o ./tmp/erika.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841548611615/katyusha.txt -L -o ./tmp/katyusha.txt
+	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841737363517/rickroll.txt -L -o ./tmp/rickroll.txt
+
+	deno run -A tools/cord_parse.js ./tmp/erika.txt ./disk_resources/examples/erika.fm
+	deno run -A tools/cord_parse.js ./tmp/katyusha.txt ./disk_resources/examples/katyusha.fm
+	deno run -A tools/cord_parse.js ./tmp/rickroll.txt ./disk_resources/examples/rickroll.fm
+
+examples:
+	make example_images
+	make example_music
 
 build_headers:
 	mkdir -p ./tmp/headers

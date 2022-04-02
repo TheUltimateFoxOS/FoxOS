@@ -26,9 +26,9 @@ kpartx -a -d /dev/${dev_mount}
 losetup -d /dev/${dev_mount}
 
 cd tmp/limine/
-make limine-s2deploy
+make limine-deploy
 cd ../../
-./tmp/limine/limine-s2deploy /root/foxos.img
+./tmp/limine/limine-deploy /root/foxos.img
 
 dd if=/dev/zero of=/root/foxos2.img bs=512 count=93750
 mkfs.vfat -F 32 /root/foxos2.img

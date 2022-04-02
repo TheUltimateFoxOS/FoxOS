@@ -29,9 +29,9 @@ mcopy -s -i ${dev_mount}s1 disk_root/* ::
 hdiutil detach ${dev_mount}
 
 cd tmp/limine/
-make limine-s2deploy
+make limine-deploy
 cd ../../
-./tmp/limine/limine-s2deploy foxos.img
+./tmp/limine/limine-deploy foxos.img
 
 dd if=/dev/zero of=foxos2.img bs=512 count=93750
 $PREFIX'/bin/'$PROG_PREFIX'mkfs.vfat' -F 32 foxos2.img

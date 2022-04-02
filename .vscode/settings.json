@@ -68,6 +68,7 @@
 		"thread.h": "c",
 		"test_tasks.h": "c",
 		"sighandler.h": "c",
-		"test_graphics.h": "c"
+		"test_graphics.h": "c",
+		"sound_push_note.h": "c"
 	}
 }
