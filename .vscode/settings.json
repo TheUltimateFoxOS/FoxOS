@@ -69,6 +69,11 @@
 		"test_tasks.h": "c",
 		"sighandler.h": "c",
 		"test_graphics.h": "c",
-		"sound_push_note.h": "c"
+		"sound_push_note.h": "c",
+		"close.h": "c",
+		"list.h": "c",
+		"assert.h": "c",
+		"keyboard_helper.h": "c",
+		"errno.h": "c"
 	}
 }
