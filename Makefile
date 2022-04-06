@@ -15,7 +15,7 @@ all:
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary --depth=1 ./tmp/limine
 
 ./tmp/ovmf:
 	@echo "Downloading OVMF!"
@@ -26,7 +26,7 @@ all:
 ./tmp/saf:
 	@echo "Downloading saf"
 	@mkdir -p ./tmp/saf
-	@git clone https://github.com/chocabloc/saf.git ./tmp/saf
+	@git clone https://github.com/chocabloc/saf.git --depth=1 ./tmp/saf
 
 img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
