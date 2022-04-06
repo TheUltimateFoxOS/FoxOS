@@ -27,7 +27,8 @@
                 "${workspaceFolder}/FoxOS-programs/libgraphics/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/pc_speaker/include",
                 "${workspaceFolder}/FoxOS-programs/imgview/include",
-                "${workspaceFolder}/FoxOS-kernel/filesystems/ext2/include"
+                "${workspaceFolder}/FoxOS-kernel/filesystems/ext2/include",
+                "${workspaceFolder}/FoxOS-programs/file/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",

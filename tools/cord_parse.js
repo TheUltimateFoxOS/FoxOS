@@ -64,10 +64,16 @@ struct note_t {
 	uint16_t note;
 }
 
-note_t notes[];
+struct foxm_t {
+	uint16_t magic; // 0xf0f0baba
+	note_t notes[];
+}
 */
 
-var array = new Uint16Array(notes.length * 2);
+var array = new Uint16Array(2 + (notes.length * 2));
+
+array[1] = 0xf0f0;
+array[0] = 0xbaba;
 
 function note_to_int(note) {
 	switch (note) {
@@ -88,8 +94,8 @@ function note_to_int(note) {
 }
 
 notes.forEach(function(note, index) {
-	array[index * 2] = note.length;
-	array[index * 2 + 1] = ((parseInt(note.octave) << 4) | note_to_int(note.note));
+	array[2 + index * 2] = note.length;
+	array[2 + index * 2 + 1] = ((parseInt(note.octave) << 4) | note_to_int(note.note));
 });
 
 console.log("Parsed " + notes.length + " notes");
