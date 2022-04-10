@@ -28,6 +28,8 @@ Then simply run one of the following:
 * `make docker-img`: package the `.img` file in Docker.
 * `make run`: To build and run FoxOS. (Will not work on Mac)
 
+The following alias command can be used to make your life easier: `alias mkfox="make run-bios USER_CFLAGS=\"-DDEBUG -DMEMORY_TRACKING\""`
+
 ## Other make commands
 
 * `make usb`: build a bootable USB. **The USB must be formatted with FAT32!**
