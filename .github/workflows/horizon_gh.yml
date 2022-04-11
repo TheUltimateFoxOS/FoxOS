@@ -1,4 +1,4 @@
-name: Automatic Release
+name: Automatic Release GH
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         ${{ secrets.FOXOS_TOOLCHAIN_CMD }}
         sudo mkdir -p /usr/local/foxos-x86_64_elf_gcc
         sudo cp toolchain.zip /usr/local/foxos-x86_64_elf_gcc/toolchain.zip
-        cd /usr/local/foxos-x86_64_elf_gcc && unzip toolchain.zip
+        cd /usr/local/foxos-x86_64_elf_gcc && sudo unzip toolchain.zip
     - name: Setup git
       run: |
         git config --global user.email "you@example.com"
