@@ -16,7 +16,7 @@ jobs:
         submodules: recursive
     - name: Install stuff
       run: |
-        sudo apt install -y mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils gdisk zip unzip
+        sudo apt install -y mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils gdisk zip unzip vncsnapshot qemu-system-x86
     - name: Install toolchain
       run: |
         ${{ secrets.FOXOS_TOOLCHAIN_CMD }}
