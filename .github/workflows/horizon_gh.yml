@@ -19,8 +19,7 @@ jobs:
         sudo apt install -y mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils gdisk zip unzip
     - name: Install toolchain
       run: |
-        curl ${{ secrets.FOXOS_TOOLCHAIN_URL }} -L -o toolchain_2.zip
-        unzip toolchain_2.zip
+        ${{ secrets.FOXOS_TOOLCHAIN_CMD }}
         sudo mkdir -p /usr/local/foxos-x86_64_elf_gcc
         sudo cp toolchain.zip /usr/local/foxos-x86_64_elf_gcc/toolchain.zip
         cd /usr/local/foxos-x86_64_elf_gcc && unzip toolchain.zip
