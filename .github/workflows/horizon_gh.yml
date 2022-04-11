@@ -21,8 +21,8 @@ jobs:
       run: |
         ${{ secrets.FOXOS_TOOLCHAIN_CMD }}
         sudo mkdir -p /usr/local/foxos-x86_64_elf_gcc
-        sudo cp toolchain.zip /usr/local/foxos-x86_64_elf_gcc/toolchain.zip
-        cd /usr/local/foxos-x86_64_elf_gcc && sudo unzip toolchain.zip
+        sudo cp toolchain.zip /toolchain.zip
+        cd / && sudo unzip toolchain.zip
     - name: Setup git
       run: |
         git config --global user.email "you@example.com"
@@ -32,16 +32,16 @@ jobs:
         sudo make img vmdk vdi qcow2 sdk
     - name: usb
       run: |
-        echo usb | make usb
+        echo usb | sudo make usb
         zip -r usb.zip usb/*
         zip -r sdk.zip tmp/sdk/*
     - name: screenshot
       run: |
-        make screenshot-bios
+        sudo make screenshot-bios
     - uses:  marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: "latest"
+        automatic_release_tag: "latest_gh"
         prerelease: false
         title: "Development Build"
         files: | 
