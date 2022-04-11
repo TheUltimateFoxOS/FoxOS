@@ -1,0 +1,55 @@
+name: Automatic Release
+
+on:
+  push:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with: 
+        submodules: recursive
+    - name: Install stuff
+      run: |
+        sudo apt install -y mtools lbzip2 curl bison flex gcc g++ unzip dosfstools automake build-essential nasm qemu-utils gdisk zip unzip
+    - name: Install toolchain
+      run: |
+        curl ${{ secrets.FOXOS_TOOLCHAIN_URL }} -L -o toolchain_2.zip
+        unzip toolchain_2.zip
+        sudo mkdir -p /usr/local/foxos-x86_64_elf_gcc
+        sudo cp toolchain.zip /usr/local/foxos-x86_64_elf_gcc/toolchain.zip
+        cd /usr/local/foxos-x86_64_elf_gcc && unzip toolchain.zip
+    - name: Setup git
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+    - name: make
+      run: |
+        sudo make img vmdk vdi qcow2 sdk
+    - name: usb
+      run: |
+        echo usb | make usb
+        zip -r usb.zip usb/*
+        zip -r sdk.zip tmp/sdk/*
+    - name: screenshot
+      run: |
+        make screenshot-bios
+    - uses:  marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "Development Build"
+        files: | 
+            foxos.img
+            foxos.vmdk
+            foxos.vdi
+            foxos.qcow2
+            foxos.jpg
+            usb.zip
+            sdk.zip
