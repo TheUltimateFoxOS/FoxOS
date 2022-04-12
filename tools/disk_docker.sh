@@ -2,9 +2,10 @@
 
 bash tools/disk_generic.sh disk_root
 
-dd if=/dev/zero of=/tmp/foxos.img bs=512 count=93750
+tmp_dir=`mktemp`
+dd if=/dev/zero of=${tmp_dir}/foxos.img bs=512 count=93750
 
-echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk /tmp/foxos.img' | sh
+echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk ${tmp_dir}/foxos.img' | sh
 
 export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
 
@@ -14,7 +15,7 @@ else
 	export PROG_PREFIX="foxos-"
 fi
 
-dev_mount=`kpartx -a -v /tmp/foxos.img | egrep -o 'loop[0-9]+'`
+dev_mount=`kpartx -a -v ${tmp_dir}/foxos.img | egrep -o 'loop[0-9]+'`
 
 echo Mounted disk as /dev/${dev_mount}
 
@@ -28,11 +29,12 @@ losetup -d /dev/${dev_mount}
 cd tmp/limine/
 make limine-deploy
 cd ../../
-./tmp/limine/limine-deploy /tmp/foxos.img
+./tmp/limine/limine-deploy ${tmp_dir}/foxos.img
 
-dd if=/dev/zero of=/tmp/foxos2.img bs=512 count=93750
-mkfs.vfat -F 32 /tmp/foxos2.img
+dd if=/dev/zero of=${tmp_dir}/foxos2.img bs=512 count=93750
+mkfs.vfat -F 32 ${tmp_dir}/foxos2.img
 
 echo Copying image files...
-mv /tmp/foxos.img ./
-mv /tmp/foxos2.img ./
+mv ${tmp_dir}/foxos.img ./
+mv ${tmp_dir}/foxos2.img ./
+rm -rf ${tmp_dir}
