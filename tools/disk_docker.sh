@@ -2,18 +2,10 @@
 
 bash tools/disk_generic.sh disk_root
 
-tmp_dir=`mktemp`
+tmp_dir=`mktemp -d`
 dd if=/dev/zero of=${tmp_dir}/foxos.img bs=512 count=93750
 
-echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk ${tmp_dir}/foxos.img' | sh
-
-export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
-
-if [ "$1" != "" ]; then
-	export PROG_PREFIX=$1
-else
-	export PROG_PREFIX="foxos-"
-fi
+echo "echo \"o\ny\nn\n1\n\n\n0700\nw\ny\n\" | gdisk ${tmp_dir}/foxos.img" | sh
 
 dev_mount=`kpartx -a -v ${tmp_dir}/foxos.img | egrep -o 'loop[0-9]+'`
 
