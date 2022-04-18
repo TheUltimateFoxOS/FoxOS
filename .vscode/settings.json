@@ -3,6 +3,7 @@
 		"/dev/zero"
 	],
 	"files.associations": {
-		"random": "cpp"
+		"random": "cpp",
+		"fox_graphics.h": "c"
 	}
 }

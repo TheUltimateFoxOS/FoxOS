@@ -4,7 +4,6 @@
             "name": "FoxOS",
             "includePath": [
                 "${workspaceFolder}/FoxOS-kernel/core/include/**",
-
                 "${workspaceFolder}/FoxOS-kernel/devices/ahci/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ps2_keyboard/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ata/include",
@@ -14,16 +13,12 @@
                 "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/pc_speaker/include",
-
                 "${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/ext2/include",
-
                 "${workspaceFolder}/FoxOS-kernel/features/graphics/include",
-
                 "${workspaceFolder}/FoxOS-programs/libc/include",
                 "${workspaceFolder}/FoxOS-programs/libgraphics/include",
                 "${workspaceFolder}/FoxOS-programs/libterm/include",
-
                 "${workspaceFolder}/FoxOS-programs/terminal/include",
                 "${workspaceFolder}/FoxOS-programs/test/include",
                 "${workspaceFolder}/FoxOS-programs/calc/include",
@@ -33,7 +28,8 @@
                 "${workspaceFolder}/FoxOS-programs/lolcat/include",
                 "${workspaceFolder}/FoxOS-programs/tasks/include",
                 "${workspaceFolder}/FoxOS-programs/imgview/include",
-                "${workspaceFolder}/FoxOS-programs/file/include"
+                "${workspaceFolder}/FoxOS-programs/file/include",
+                "${workspaceFolder}/FoxOS-kernel/devices/ps2_mouse/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
