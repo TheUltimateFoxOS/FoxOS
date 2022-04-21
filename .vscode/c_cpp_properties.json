@@ -11,7 +11,7 @@
                 "${workspaceFolder}/FoxOS-kernel/devices/am79C973/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/e1000/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/laihost/lai/include",
+                "${workspaceFolder}/FoxOS-kernel/features/laihost/lai/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/pc_speaker/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/ext2/include",
@@ -29,7 +29,8 @@
                 "${workspaceFolder}/FoxOS-programs/tasks/include",
                 "${workspaceFolder}/FoxOS-programs/imgview/include",
                 "${workspaceFolder}/FoxOS-programs/file/include",
-                "${workspaceFolder}/FoxOS-kernel/devices/ps2_mouse/include"
+                "${workspaceFolder}/FoxOS-kernel/devices/ps2_mouse/include",
+                "${workspaceFolder}/FoxOS-kernel/features/acpi_dump/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
