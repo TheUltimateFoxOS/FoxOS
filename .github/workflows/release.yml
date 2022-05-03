@@ -11,7 +11,7 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with: 
         submodules: recursive
     - name: make
