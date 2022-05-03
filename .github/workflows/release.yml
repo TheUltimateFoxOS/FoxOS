@@ -21,7 +21,7 @@ jobs:
         echo usb | make usb
         zip -r usb.zip usb/*
         make screenshot
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: "old version"
         path: | 
