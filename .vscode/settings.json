@@ -4,6 +4,7 @@
 	],
 	"files.associations": {
 		"random": "cpp",
-		"fox_graphics.h": "c"
+		"fox_graphics.h": "c",
+		"get_cpu_info.h": "c"
 	}
 }
