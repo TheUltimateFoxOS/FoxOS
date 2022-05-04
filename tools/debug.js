@@ -9,7 +9,7 @@ function to_bool(str) {
 	return false;
 }
 
-var command = ' screen -S gdb gdb -ex "target remote localhost:1234" -ex "break _start" -ex "continue"'
+var command = ' screen -S gdb gdb -ex "target remote localhost:1234" -ex "break _start_limine" -ex "break _start_stivale2" -ex "continue"'
 
 if(to_bool(prompt("Debug assembly? "))) {
     command += '-ex "layout asm"';
