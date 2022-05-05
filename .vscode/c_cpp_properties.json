@@ -31,7 +31,7 @@
                 "${workspaceFolder}/FoxOS-programs/file/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ps2_mouse/include",
                 "${workspaceFolder}/FoxOS-kernel/features/acpi_dump/include",
-                "${workspaceFolder}/FoxOS-kernel/features/smbios/include",
+                "${workspaceFolder}/FoxOS-programs/smbios32/include",
                 "${workspaceFolder}/FoxOS-kernel/features/smbios32/include"
             ],
             "intelliSenseMode": "gcc-x64",
