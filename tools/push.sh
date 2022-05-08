@@ -7,6 +7,7 @@ function push_dir {
 }
 
 push_dir FoxOS-kernel
+push_dir FoxOS-programs/libfoxos
 push_dir FoxOS-programs/libc
 push_dir FoxOS-programs
 push_dir .
