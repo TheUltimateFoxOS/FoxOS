@@ -7,15 +7,15 @@ dd if=/dev/zero of=foxos.img bs=512 count=93750
 echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img' | sh
 
 if [ "$1" != "" ]; then
-        export PREFIX=$1
+	export PREFIX=$1
 else
-        export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
+	export PREFIX="/usr/local/foxos-x86_64_elf_gcc"
 fi
 
 if [ "$2" != "" ]; then
-        export PROG_PREFIX=$2
+	export PROG_PREFIX=$2
 else
-        export PROG_PREFIX="foxos-"
+	export PROG_PREFIX="foxos-"
 fi
 
 dev_mount=`hdiutil attach -nomount -noverify foxos.img | egrep -o '/dev/disk[0-9]+' | head -1`
