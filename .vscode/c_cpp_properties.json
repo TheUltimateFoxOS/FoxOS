@@ -12,7 +12,6 @@
                 "${workspaceFolder}/FoxOS-kernel/devices/e1000/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/rtl8139/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/ps2_mouse/include",
-                "${workspaceFolder}/FoxOS-kernel/features/laihost/lai/include",
                 "${workspaceFolder}/FoxOS-kernel/devices/pc_speaker/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/fat32/include",
                 "${workspaceFolder}/FoxOS-kernel/filesystems/ext2/include",
@@ -20,6 +19,7 @@
                 "${workspaceFolder}/FoxOS-kernel/features/graphics/include",
                 "${workspaceFolder}/FoxOS-kernel/features/acpi_dump/include",
                 "${workspaceFolder}/FoxOS-kernel/features/smbios32/include",
+                "${workspaceFolder}/FoxOS-kernel/features/laihost/lai/include",
                 "${workspaceFolder}/FoxOS-programs/libc/include",
                 "${workspaceFolder}/FoxOS-programs/libgraphics/include",
                 "${workspaceFolder}/FoxOS-programs/libterm/include",
@@ -39,7 +39,8 @@
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
-            "cppStandard": "gnu++14"
+            "cppStandard": "gnu++14",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

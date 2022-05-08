@@ -7,6 +7,7 @@
 		"fox_graphics.h": "c",
 		"get_cpu_info.h": "c",
 		"log.h": "c",
-		"smbios_structures.h": "c"
+		"smbios_structures.h": "c",
+		"term.h": "c"
 	}
 }
