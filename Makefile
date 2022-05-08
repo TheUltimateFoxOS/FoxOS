@@ -153,8 +153,7 @@ examples:
 build_headers:
 	mkdir -p ./tmp/headers
 	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/
-	cp -r FoxOS-programs/libterm/include/ ./tmp/headers/libterm/
-	cp -r FoxOS-programs/libgraphics/include/ ./tmp/headers/libgraphics/
+	cp -r FoxOS-programs/libfoxos/include/ ./tmp/headers/libfoxos/
 	cp -r FoxOS-kernel/core/include/ ./tmp/headers/kernel/
 
 sdk: all build_headers ./tmp/saf ./tmp/limine
@@ -168,10 +167,8 @@ sdk: all build_headers ./tmp/saf ./tmp/limine
 	mkdir -p ./tmp/sdk/lib
 	cp -r ./FoxOS-programs/bin/libc.a ./tmp/sdk/lib/
 	cp -r ./FoxOS-programs/bin/libc.a.o ./tmp/sdk/lib/
-	cp -r ./FoxOS-programs/bin/libterm.a ./tmp/sdk/lib/
-	cp -r ./FoxOS-programs/bin/libterm.a.o ./tmp/sdk/lib/
-	cp -r ./FoxOS-programs/bin/libgraphics.a ./tmp/sdk/lib/
-	cp -r ./FoxOS-programs/bin/libgraphics.a.o ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libfoxos.a ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libfoxos.a.o ./tmp/sdk/lib/
 
 	cp -r sdk/* ./tmp/sdk/
 
