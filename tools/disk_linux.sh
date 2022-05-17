@@ -2,7 +2,7 @@
 
 bash tools/disk_generic.sh disk_root
 
-dd if=/dev/zero of=foxos.img bs=512 count=93750
+dd if=/dev/zero of=foxos.img bs=512 count=193750
 
 echo 'echo "o\ny\nn\n1\n\n\n0700\nw\ny\n" | gdisk foxos.img' | sh
 
