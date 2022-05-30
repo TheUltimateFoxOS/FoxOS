@@ -3,7 +3,7 @@
 bash tools/disk_generic.sh disk_root
 
 tmp_dir=`mktemp -d`
-dd if=/dev/zero of=${tmp_dir}/foxos.img bs=512 count=93750
+dd if=/dev/zero of=${tmp_dir}/foxos.img bs=512 count=193750
 
 echo "echo \"o\ny\nn\n1\n\n\n0700\nw\ny\n\" | gdisk ${tmp_dir}/foxos.img" | sh
 

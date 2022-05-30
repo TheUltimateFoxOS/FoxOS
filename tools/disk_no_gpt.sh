@@ -2,7 +2,7 @@
 
 bash tools/disk_generic.sh disk_root
 
-dd if=/dev/zero of=/root/foxos.img bs=512 count=93750 status=progress
+dd if=/dev/zero of=/root/foxos.img bs=512 count=193750 status=progress
 
 mkfs.vfat -F 32 /root/foxos.img
 
