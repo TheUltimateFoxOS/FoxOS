@@ -33,7 +33,7 @@ else
 endif
 
 LDFLAGS = -r
-CFLAGS = -I$(SDK_ROOT)/headers/kernel -ffreestanding -fshort-wchar -mno-red-zone -Iinclude -fno-exceptions -fno-leading-underscore -fno-exceptions -fno-stack-protector -mno-sse -mno-sse2 -mno-3dnow -mno-80387 -g
+CFLAGS = -I$(SDK_ROOT)/headers/kernel -mcmodel=large -ffreestanding -fshort-wchar -mno-red-zone -Iinclude -fno-exceptions -fno-exceptions -fno-stack-protector -mno-sse -mno-sse2 -mno-3dnow -mno-80387 -g
 CPPFLAGS = -fno-use-cxa-atexit -fno-rtti $(CFLAGS)
 ASMFLAGS = -f elf64
 
@@ -64,7 +64,7 @@ $(OBJDIR)/$(MODULE_NAME)/%_asm.o: %.asm
 
 DISK = .sdk/foxos.img
 
-QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file=".sdk/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file=".sdk/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=.sdk/dump.dat
+QEMUFLAGS_RAW = -machine q35 -smp 1 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file=".sdk/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file=".sdk/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=.sdk/dump.dat
 QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=$(DISK)
 
 image: module
@@ -76,7 +76,7 @@ image: module
 
 	$(SDK_ROOT)/bin/saf-make .sdk/disk/BOOT/MODULES .sdk/disk/BOOT/initrd.saf
 
-	dd if=/dev/zero of=$(DISK) bs=512 count=93750 status=progress
+	dd if=/dev/zero of=$(DISK) bs=512 count=193750 status=progress
 	mkfs.vfat -F 32 $(DISK)
 	mcopy -s -i $(DISK) .sdk/disk/* ::
 

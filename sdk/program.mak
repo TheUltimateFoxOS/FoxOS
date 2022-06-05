@@ -10,7 +10,7 @@ OBJS = $(patsubst %.c, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CPPSRC))
 
 TOOLCHAIN_BASE = /usr/local/foxos-x86_64_elf_gcc
 
-CFLAGS = -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libfoxos -Iinclude  -fdata-sections -ffunction-sections
+CFLAGS = -O2 -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libfoxos -Iinclude  -fdata-sections -ffunction-sections
 LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libfoxos.a.o --gc-sections
 
 ifeq (,$(wildcard $(TOOLCHAIN_BASE)/bin/foxos-gcc))
@@ -44,7 +44,7 @@ $(OBJDIR)/%_$(PROGRAM_NAME).o: %.c
 
 DISK = .sdk/foxos.img
 
-QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file=".sdk/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file=".sdk/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=.sdk/dump.dat
+QEMUFLAGS_RAW = -machine q35 -smp 1 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file=".sdk/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file=".sdk/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=.sdk/dump.dat
 QEMUFLAGS = $(QEMUFLAGS_RAW) -drive file=$(DISK)
 
 image: program
@@ -54,7 +54,7 @@ image: program
 
 	cp $(BUILDDIR)/$(PROGRAM_NAME) .sdk/disk/BIN
 
-	dd if=/dev/zero of=$(DISK) bs=512 count=93750 status=progress
+	dd if=/dev/zero of=$(DISK) bs=512 count=193750 status=progress
 	mkfs.vfat -F 32 $(DISK)
 	mcopy -s -i $(DISK) .sdk/disk/* ::
 
