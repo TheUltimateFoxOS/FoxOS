@@ -15,7 +15,8 @@ all:
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary --depth=1 ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
+	@git -C ./tmp/limine checkout 9761d387a73a1d8ba517421ad3c7c6e6cda49626
 
 ./tmp/ovmf:
 	@echo "Downloading OVMF!"

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun 19 15:30:48 2022
+# Make data base, printed on Mon Jun 20 19:25:33 2022
 
 # Variables
 
@@ -17,15 +17,15 @@ LC_ALL = C
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/janick/.gtkrc:/home/janick/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-aba9e64e-ef18-41ac-9cf3-949964dfd81c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-978c4fd3-ef05-4cdb-863b-dcd86d06426c.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/plasma.mandatory.path
 # environment
-KONSOLE_DBUS_SERVICE = :1.65
+KONSOLE_DBUS_SERVICE = :1.55
 # environment
 VSCODE_CWD = /home/janick/Development/FoxOS
 # environment
-WINDOWID = 111149063
+WINDOWID = 92274695
 # default
 MAKE_COMMAND := make
 # environment
@@ -73,7 +73,7 @@ CURDIR := /home/janick/Development/FoxOS
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -81,10 +81,10 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXSm16Y8/agent.1123
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXKbLjX9/agent.1128
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 101)
+# makefile (from 'Makefile', line 102)
 FOXOS_VM_NAME = foxos-runner
 # environment
 XDG_CONFIG_DIRS = /home/janick/.config/kdedefaults:/etc/xdg/xdg-plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings
@@ -101,13 +101,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4967
+VSCODE_PID = 40933
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/nya:@/tmp/.ICE-unix/1423,unix/nya:/tmp/.ICE-unix/1423
+SESSION_MANAGER = local/nya:@/tmp/.ICE-unix/1427,unix/nya:/tmp/.ICE-unix/1427
 # automatic
 *F = $(notdir $*)
 # environment
@@ -131,7 +131,7 @@ PLATFORMIO_CALLER = vscode
 # environment
 DENO_INSTALL = /home/janick/.deno
 # makefile (from 'Makefile', line 4)
-QEMUFLAGS_BIOS_RAW = --enable-kvm -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_BIOS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 # environment
 SHLVL = 1
 # environment
@@ -177,13 +177,13 @@ QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.
 # environment
 LOGNAME = janick
 # environment
-PLATFORMIO_PATH = /home/janick/.platformio/penv/bin:/home/janick/.platformio/penv:/home/janick/.platformio/python3/bin:/home/janick/.deno/bin:/home/janick/.deno/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PLATFORMIO_PATH = /home/janick/.platformio/python3/bin:/home/janick/.deno/bin:/home/janick/.deno/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 865
+SYSTEMD_EXEC_PID = 875
 # environment
 DISPLAY = :0
 # environment
@@ -199,7 +199,7 @@ FOX_GCC_PATH = /usr/local/foxos-x86_64_elf_gcc
 # environment
 KONSOLE_DBUS_SESSION = /Sessions/1
 # environment
-SSH_AGENT_PID = 1266
+SSH_AGENT_PID = 1271
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -245,7 +245,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 DEBUG = WARN
 # environment
-SHELL_SESSION_ID = bdfb0ba0b7764aab853ed2f249f83553
+SHELL_SESSION_ID = 93d6bf9f8b2243c6b2057a858ef1543a
 # environment
 KDE_SESSION_VERSION = 5
 # default
@@ -274,37 +274,37 @@ KDE_FULL_SESSION = true
 run-dbg: img tmp/ovmf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 56):
+#  recipe to execute (from 'Makefile', line 57):
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS) -s -S
 
 docker-img: all tmp/limine tmp/saf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 38):
+ 
+#  recipe to execute (from 'Makefile', line 39):
 	sh tools/disk_docker.sh $(FOX_GCC_PATH)
 
 run-dbg-bios: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 65):
+#  recipe to execute (from 'Makefile', line 66):
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS_BIOS) -s -S
 
 img: all tmp/limine tmp/saf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 32):
+#  recipe to execute (from 'Makefile', line 33):
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
 
 example_images:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 118):
+#  recipe to execute (from 'Makefile', line 119):
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959117829704142858/unknown.png -L -o ./tmp/rickroll.png
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830010322964/unknown.png -L -o ./tmp/trollface.png
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959117830345855036/unknown.png -L -o ./tmp/buttercat.png
@@ -321,13 +321,13 @@ debug:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 88):
+#  recipe to execute (from 'Makefile', line 89):
 	deno run --allow-run tools/debug.js
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-19 15:30:28.277050867
+#  Last modified 2022-06-20 16:51:25.649589853
 #  File has been updated.
 #  Successfully updated.
 
@@ -335,7 +335,7 @@ tmp/ovmf:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  recipe to execute (from 'Makefile', line 22):
 	@echo "Downloading OVMF!"
 	@mkdir -p ./tmp/ovmf
 	@curl -L https://github.com/TheUltimateFoxOS/FoxOS/releases/download/ovmf/OVMF_CODE-pure-efi.fd -o ./tmp/ovmf/OVMF_CODE-pure-efi.fd
@@ -345,14 +345,14 @@ no-gpt-img: all tmp/limine tmp/saf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 42):
 	sh tools/disk_no_gpt.sh $(FOX_GCC_PATH)
 
 run-vbox: qcow2
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 114):
+#  recipe to execute (from 'Makefile', line 115):
 	vboxmanage startvm --putenv VBOX_GUI_DBG_ENABLED=true $(FOXOS_VM_NAME)
 	watch -n 0.1 tail /tmp/vbox.log -n $(shell echo $(shell tput lines) - 1 | bc)
 
@@ -360,7 +360,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 80):
+#  recipe to execute (from 'Makefile', line 81):
 	make -C FoxOS-kernel clean
 	make -C FoxOS-programs clean
 	rm -rf tmp/ disk_root/
@@ -371,7 +371,7 @@ install_sdk: sdk
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 176):
+#  recipe to execute (from 'Makefile', line 177):
 	sudo mkdir -p /opt/foxos_sdk
 	sudo cp -r ./tmp/sdk/* /opt/foxos_sdk/
 
@@ -379,7 +379,7 @@ sdk: all build_headers tmp/saf tmp/limine
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 160):
+#  recipe to execute (from 'Makefile', line 161):
 	mkdir -p ./tmp/sdk
 	cp -r ./tmp/headers ./tmp/sdk/
 	bash tools/disk_generic.sh ./tmp/sdk/disk
@@ -396,7 +396,7 @@ screenshot:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 74):
+#  recipe to execute (from 'Makefile', line 75):
 	echo "(make run-vnc  &>/dev/null & disown; sleep 45; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
 
 tmp/limine:
@@ -406,20 +406,21 @@ tmp/limine:
 #  recipe to execute (from 'Makefile', line 16):
 	@echo "Downloading latest limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary --depth=1 ./tmp/limine
+	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
+	@git -C ./tmp/limine checkout 9761d387a73a1d8ba517421ad3c7c6e6cda49626
 
 vdi: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 	qemu-img convert foxos.img -O vdi foxos.vdi
 
 tmp/saf:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 28):
 	@echo "Downloading saf"
 	@mkdir -p ./tmp/saf
 	@git clone https://github.com/chocabloc/saf.git --depth=1 ./tmp/saf
@@ -428,14 +429,14 @@ run-vnc: img tmp/ovmf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 59):
+#  recipe to execute (from 'Makefile', line 60):
 	qemu-system-x86_64 $(QEMUFLAGS) -vnc :1
 
 vbox-setup:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 104):
+#  recipe to execute (from 'Makefile', line 105):
 	vboxmanage createvm --name $(FOXOS_VM_NAME)
 	vboxmanage registervm /home/$(USER)/VirtualBox\ VMs/$(FOXOS_VM_NAME)/$(FOXOS_VM_NAME).vbox
 	vboxmanage modifyvm $(FOXOS_VM_NAME) --longmode on --ioapic on --nic1 nat --nictype1 Am79C973 --memory 1024 --uart1 0x3f8 4 --uartmode1 file /tmp/vbox.log --nictrace1 on --nictracefile1 /tmp/vbox.pcap
@@ -446,14 +447,14 @@ vmdk: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 45):
 	qemu-img convert foxos.img -O vmdk foxos.vmdk
 
 usb: all tmp/limine
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 91):
+#  recipe to execute (from 'Makefile', line 92):
 	@read -p "Enter path to usb >> " usb_path; \
 	bash tools/disk_generic.sh $$usb_path
 
@@ -461,7 +462,7 @@ losetup:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
+#  recipe to execute (from 'Makefile', line 96):
 	gcc -xc -o losetup.elf losetup.c
 	chmod u+s losetup.elf
 	chmod g+s losetup.elf
@@ -477,7 +478,7 @@ qcow2: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 51):
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
 
 all:
@@ -515,21 +516,21 @@ screenshot-bios:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 77):
+#  recipe to execute (from 'Makefile', line 78):
 	echo "(make run-vnc-bios  &>/dev/null & disown; sleep 45; vncsnapshot localhost:1 foxos.jpg; killall qemu-system-x86_64)" | bash
 
 run: img tmp/ovmf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 54):
 	qemu-system-x86_64 $(QEMUFLAGS)
 
 examples:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 150):
+#  recipe to execute (from 'Makefile', line 151):
 	make example_images
 	make example_music
 
@@ -537,22 +538,21 @@ run-vnc-bios: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 68):
+#  recipe to execute (from 'Makefile', line 69):
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
 
 run-foxos2: tmp/ovmf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 71):
+#  recipe to execute (from 'Makefile', line 72):
 	qemu-system-x86_64 $(QEMUFLAGS_RAW) -drive file=foxos2.img
 
 example_music:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 133):
- 
+#  recipe to execute (from 'Makefile', line 134):
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841359880223/erika.txt -L -o ./tmp/erika.txt
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841548611615/katyusha.txt -L -o ./tmp/katyusha.txt
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959832841737363517/rickroll.txt -L -o ./tmp/rickroll.txt
@@ -572,14 +572,15 @@ run-bios: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 62):
+ 
+#  recipe to execute (from 'Makefile', line 63):
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS)
 
 mac-img: all tmp/limine tmp/saf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  recipe to execute (from 'Makefile', line 36):
 	sh tools/disk_macos.sh $(FOX_GCC_PATH)
 
 # Not a target:
@@ -592,7 +593,7 @@ build_headers:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 154):
+#  recipe to execute (from 'Makefile', line 155):
 	mkdir -p ./tmp/headers
 	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/
 	cp -r FoxOS-programs/libfoxos/include/ ./tmp/headers/libfoxos/
@@ -612,6 +613,6 @@ build_headers:
 # strcache performance: lookups = 132 / hit rate = 54%
 # hash-table stats:
 # Load=60/8192=1%, Rehash=0, Collisions=0/132=0%
-# Finished Make data base on Sun Jun 19 15:30:48 2022
+# Finished Make data base on Mon Jun 20 19:25:34 2022
 
  
