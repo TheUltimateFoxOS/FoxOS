@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun 20 19:25:33 2022
+# Make data base, printed on Tue Jun 21 18:18:20 2022
 
 # Variables
 
@@ -17,23 +17,17 @@ LC_ALL = C
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/janick/.gtkrc:/home/janick/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-978c4fd3-ef05-4cdb-863b-dcd86d06426c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b291cc25-6e6a-4b97-a2c5-eea737c2882d.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/plasma.mandatory.path
 # environment
-KONSOLE_DBUS_SERVICE = :1.55
-# environment
-VSCODE_CWD = /home/janick/Development/FoxOS
-# environment
-WINDOWID = 92274695
+VSCODE_CWD = /home/janick
 # default
 MAKE_COMMAND := make
 # environment
 QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# environment
-KONSOLE_VERSION = 211203
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -44,8 +38,6 @@ PWD = /home/janick/Development/FoxOS
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/plasma:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-KONSOLE_DBUS_WINDOW = /Windows/1
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -64,8 +56,6 @@ XAUTHORITY = /home/janick/.Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
-# environment
-COLORFGBG = 15;0
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -81,7 +71,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXKbLjX9/agent.1128
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXXWggZp/agent.1123
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 102)
@@ -101,13 +91,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 40933
+VSCODE_PID = 1639
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/nya:@/tmp/.ICE-unix/1427,unix/nya:/tmp/.ICE-unix/1427
+SESSION_MANAGER = local/nya:@/tmp/.ICE-unix/1423,unix/nya:/tmp/.ICE-unix/1423
 # automatic
 *F = $(notdir $*)
 # environment
@@ -131,11 +121,9 @@ PLATFORMIO_CALLER = vscode
 # environment
 DENO_INSTALL = /home/janick/.deno
 # makefile (from 'Makefile', line 4)
-QEMUFLAGS_BIOS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
+QEMUFLAGS_BIOS_RAW = --enable-kvm -machine q35 -smp 4 -m 1G -cpu qemu64 -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 # environment
 SHLVL = 1
-# environment
-PROFILEHOME = 
 # environment
 MAKELEVEL := 0
 # default
@@ -160,8 +148,6 @@ XDG_SEAT = seat0
 NO_PROXY = 127.0.0.1
 # environment
 XDG_CURRENT_DESKTOP = KDE
-# environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -177,13 +163,13 @@ QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.
 # environment
 LOGNAME = janick
 # environment
-PLATFORMIO_PATH = /home/janick/.platformio/python3/bin:/home/janick/.deno/bin:/home/janick/.deno/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PLATFORMIO_PATH = /home/janick/.platformio/penv/bin:/home/janick/.platformio/penv:/home/janick/.platformio/python3/bin:/home/janick/.deno/bin:/home/janick/.deno/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 875
+SYSTEMD_EXEC_PID = 873
 # environment
 DISPLAY = :0
 # environment
@@ -197,15 +183,11 @@ MAKE_VERSION := 4.3
 # makefile (from 'Makefile', line 7)
 FOX_GCC_PATH = /usr/local/foxos-x86_64_elf_gcc
 # environment
-KONSOLE_DBUS_SESSION = /Sessions/1
-# environment
-SSH_AGENT_PID = 1271
+SSH_AGENT_PID = 1266
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
-# environment
-COLORTERM = truecolor
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -220,8 +202,6 @@ HOME = /home/janick
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-c8697ad9-1.67.2-main.sock
-# environment
-TERM = xterm-256color
 # makefile (from 'Makefile', line 1)
 QEMUFLAGS_RAW = -machine q35 -smp 4 -m 1G -cpu qemu64 -drive if=pflash,format=raw,unit=0,file="tmp/ovmf/OVMF_CODE-pure-efi.fd",readonly=on -drive if=pflash,format=raw,unit=1,file="tmp/ovmf/OVMF_VARS-pure-efi.fd" -serial stdio -soundhw pcspk -netdev user,id=u1,hostfwd=tcp::9999-:9999 -device rtl8139,netdev=u1 -object filter-dump,id=f1,netdev=u1,file=dump.dat
 # environment
@@ -239,13 +219,7 @@ SUFFIXES :=
 # environment
 QT_AUTO_SCREEN_SCALE_FACTOR = 0
 # environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# environment
 DEBUG = WARN
-# environment
-SHELL_SESSION_ID = 93d6bf9f8b2243c6b2057a858ef1543a
 # environment
 KDE_SESSION_VERSION = 5
 # default
@@ -253,7 +227,7 @@ KDE_SESSION_VERSION = 5
 # environment
 KDE_FULL_SESSION = true
 # variable set hash-table stats:
-# Load=121/1024=12%, Rehash=0, Collisions=11/158=7%
+# Load=108/1024=11%, Rehash=0, Collisions=7/145=5%
 
 # Pattern-specific Variable Values
 
@@ -282,7 +256,6 @@ docker-img: all tmp/limine tmp/saf
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 39):
 	sh tools/disk_docker.sh $(FOX_GCC_PATH)
 
@@ -303,6 +276,7 @@ img: all tmp/limine tmp/saf
 example_images:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 119):
 	curl https://cdn.discordapp.com/attachments/805055812376330241/959117829704142858/unknown.png -L -o ./tmp/rickroll.png
@@ -327,7 +301,7 @@ debug:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-20 16:51:25.649589853
+#  Last modified 2022-06-21 18:17:32.380152352
 #  File has been updated.
 #  Successfully updated.
 
@@ -572,7 +546,6 @@ run-bios: img
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 63):
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS)
 
@@ -581,6 +554,7 @@ mac-img: all tmp/limine tmp/saf
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 36):
+ 
 	sh tools/disk_macos.sh $(FOX_GCC_PATH)
 
 # Not a target:
@@ -613,6 +587,6 @@ build_headers:
 # strcache performance: lookups = 132 / hit rate = 54%
 # hash-table stats:
 # Load=60/8192=1%, Rehash=0, Collisions=0/132=0%
-# Finished Make data base on Mon Jun 20 19:25:34 2022
+# Finished Make data base on Tue Jun 21 18:18:20 2022
 
  
