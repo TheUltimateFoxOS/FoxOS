@@ -5,13 +5,20 @@ SDK_ROOT = /opt/foxos_sdk
 
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-CPPSRC = $(call rwildcard,./,*.c)
-OBJS = $(patsubst %.c, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CPPSRC))
+CSRC = $(call rwildcard,./,*.c)
+CPPSRC = $(call rwildcard,./,*.cpp)
+
+OBJS = $(patsubst %.c, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CSRC)) $(C_OBJS)
+OBJS += $(patsubst %.cpp, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CPPSRC)) $(CPP_OBJS)
 
 TOOLCHAIN_BASE = /usr/local/foxos-x86_64_elf_gcc
 
 CFLAGS = -O2 -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libfoxos -Iinclude  -fdata-sections -ffunction-sections
+CPPFLAGS = -fno-use-cxa-atexit -fno-rtti $(CFLAGS) -fno-exceptions
 LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libfoxos.a.o --gc-sections
+
+CFLAGS += $(USER_CFLAGS)
+CPPFLAGS += $(USER_CPPFLAGS)
 
 ifeq (,$(wildcard $(TOOLCHAIN_BASE)/bin/foxos-gcc))
 	CC = gcc
@@ -41,6 +48,10 @@ $(OBJDIR)/%_$(PROGRAM_NAME).o: %.c
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c -o $@ $^
 
+$(OBJDIR)/%_$(PROGRAM_NAME).o: %.cpp
+	@echo "CC $^ -> $@"
+	@mkdir -p $(@D)
+	@$(CC) $(CPPFLAGS) -c -o $@ $^
 
 DISK = .sdk/foxos.img
 
