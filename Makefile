@@ -80,7 +80,7 @@ screenshot-bios:
 clean:
 	make -C FoxOS-kernel clean
 	make -C FoxOS-programs clean
-	rm -rf tmp/ disk_root/
+	rm -rf disk_root/
 	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
 
 	rm FoxOS-programs/limine_install/include/limine-hdd.h
