@@ -21,6 +21,7 @@
 		"memory_info.h": "c",
 		"render.h": "c",
 		"image_reader.h": "c",
-		"stddef.h": "c"
+		"stddef.h": "c",
+		"write.h": "c"
 	}
 }
