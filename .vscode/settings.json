@@ -22,6 +22,8 @@
 		"render.h": "c",
 		"image_reader.h": "c",
 		"stddef.h": "c",
-		"write.h": "c"
+		"write.h": "c",
+		"sighandler.h": "c",
+		"disk_access.h": "c"
 	}
 }

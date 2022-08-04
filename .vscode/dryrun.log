@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/janick/Development/FoxOS'
 make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=/usr/local/foxos-x86_64_elf_gcc
 make -C FoxOS-kernel TOOLCHAIN_BASE=/usr/local/foxos-x86_64_elf_gcc
