@@ -28,7 +28,7 @@
                 "${workspaceFolder}/FoxOS-programs/install/include",
                 "${workspaceFolder}/FoxOS-programs/init/include",
                 "${workspaceFolder}/FoxOS-programs/limine_install/include",
-                "${workspaceFolder}/FoxOS-programs/lolcat/include",
+                "${workspaceFolder}/FoxOS-programs/libtinf/include",
                 "${workspaceFolder}/FoxOS-programs/tasks/include",
                 "${workspaceFolder}/FoxOS-programs/imgview/include",
                 "${workspaceFolder}/FoxOS-programs/file/include",

@@ -155,6 +155,7 @@ build_headers:
 	mkdir -p ./tmp/headers
 	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/
 	cp -r FoxOS-programs/libfoxos/include/ ./tmp/headers/libfoxos/
+	cp -r FoxOS-programs/libtinf/include/ ./tmp/headers/libtinf/
 	cp -r FoxOS-kernel/core/include/ ./tmp/headers/kernel/
 
 sdk: all build_headers ./tmp/saf ./tmp/limine
@@ -170,6 +171,8 @@ sdk: all build_headers ./tmp/saf ./tmp/limine
 	cp -r ./FoxOS-programs/bin/libc.a.o ./tmp/sdk/lib/
 	cp -r ./FoxOS-programs/bin/libfoxos.a ./tmp/sdk/lib/
 	cp -r ./FoxOS-programs/bin/libfoxos.a.o ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libtinf.a ./tmp/sdk/lib/
+	cp -r ./FoxOS-programs/bin/libtinf.a.o ./tmp/sdk/lib/
 
 	cp -r sdk/* ./tmp/sdk/
 
