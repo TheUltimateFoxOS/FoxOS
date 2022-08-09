@@ -1,7 +1,7 @@
 FROM debian
 
 RUN apt update
-RUN apt install lbzip2 mtools dosfstools git gcc make automake g++ flex bison unzip curl gdisk -y
+RUN apt install graphicsmagick-imagemagick-compat lbzip2 mtools dosfstools git gcc make automake g++ flex bison unzip curl gdisk -y
 
 ENV PREFIX="/usr/local/foxos-x86_64_elf_gcc"
 ENV TARGET=x86_64-elf

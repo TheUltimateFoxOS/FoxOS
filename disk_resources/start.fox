@@ -2,4 +2,4 @@ export COPYRIGHT_HOLDER=TheUltimateFoxOS
 export COPYRIGHT_YEAR=2022
 
 echo FoxOS horizon Copyright (C) $COPYRIGHT_YEAR $COPYRIGHT_HOLDER
-#foxde
+foxde
