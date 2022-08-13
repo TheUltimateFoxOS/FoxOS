@@ -34,7 +34,8 @@
                 "${workspaceFolder}/FoxOS-programs/file/include",
                 "${workspaceFolder}/FoxOS-programs/foxde/include",
                 "${workspaceFolder}/FoxOS-programs/smbios32/include",
-                "${workspaceFolder}/FoxOS-programs/foxe/include"
+                "${workspaceFolder}/FoxOS-programs/foxe/include",
+                "${workspaceFolder}/FoxOS-programs/libcfg/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",

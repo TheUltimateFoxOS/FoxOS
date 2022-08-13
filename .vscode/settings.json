@@ -24,6 +24,7 @@
 		"stddef.h": "c",
 		"write.h": "c",
 		"sighandler.h": "c",
-		"disk_access.h": "c"
+		"disk_access.h": "c",
+		"keyboard_helper.h": "c"
 	}
 }

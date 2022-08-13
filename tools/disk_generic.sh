@@ -11,7 +11,7 @@ function build_disk_structure {
 	cp disk_resources/startup.nsh $1/
 	cp LICENSE $1/
 	cp disk_resources/dn.fox $1/FOXCFG
-	cp disk_resources/cfg.fox $1/FOXCFG
+	cp disk_resources/init.cfg $1/FOXCFG
 	cp disk_resources/start.fox $1/FOXCFG
 	cp disk_resources/foxde-bg.bmp $1/FOXCFG -v
 	cp disk_resources/image_src/*.bmp $1/FOXCFG -v
