@@ -13,8 +13,12 @@ function build_disk_structure {
 	cp disk_resources/dn.fox $1/FOXCFG
 	cp disk_resources/init.cfg $1/FOXCFG
 	cp disk_resources/start.fox $1/FOXCFG
-	cp disk_resources/foxde-bg.bmp $1/FOXCFG -v
-	cp disk_resources/image_src/*.bmp $1/FOXCFG -v
+
+	mkdir -p $1/FOXCFG/foxde
+
+	cp disk_resources/foxde-bg.bmp $1/FOXCFG/foxde/bg.bmp -v
+	cp disk_resources/foxde.cfg $1/FOXCFG/foxde/config.cfg -v
+	cp disk_resources/icons_src/*.bmp $1/FOXCFG/foxde/. -v
 
 	cp FoxOS-kernel/bin/*.elf $1/BOOT/
 	cp FoxOS-kernel/bin/*.o $1/BOOT/MODULES/

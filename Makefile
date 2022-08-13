@@ -11,7 +11,7 @@ all:
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-programs TOOLCHAIN_BASE=$(FOX_GCC_PATH)
-	make -C disk_resources/image_src
+	make -C disk_resources/icons_src
 
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
