@@ -153,16 +153,21 @@ examples:
 	make example_music
 
 build_headers:
-	mkdir -p ./tmp/headers
-	cp -r FoxOS-programs/libc/include/ ./tmp/headers/libc/
-	cp -r FoxOS-programs/libfoxos/include/ ./tmp/headers/libfoxos/
-	cp -r FoxOS-programs/libtinf/include/ ./tmp/headers/libtinf/
-	cp -r FoxOS-programs/libcfg/include/ ./tmp/headers/libcfg/
-	cp -r FoxOS-kernel/core/include/ ./tmp/headers/kernel/
+	mkdir -p ./tmp/headers/libc
+	mkdir -p ./tmp/headers/libfoxos
+	mkdir -p ./tmp/headers/libtinf
+	mkdir -p ./tmp/headers/libcfg
+	mkdir -p ./tmp/headers/kernel
+	
+	cp -r FoxOS-programs/libc/include/* ./tmp/headers/libc/
+	cp -r FoxOS-programs/libfoxos/include/* ./tmp/headers/libfoxos/
+	cp -r FoxOS-programs/libtinf/include/* ./tmp/headers/libtinf/
+	cp -r FoxOS-programs/libcfg/include/* ./tmp/headers/libcfg/
+	cp -r FoxOS-kernel/core/include/* ./tmp/headers/kernel/
 
-sdk: all build_headers ./tmp/saf ./tmp/limine
+sdk: build_headers ./tmp/saf ./tmp/limine
 	mkdir -p ./tmp/sdk
-	cp -r ./tmp/headers ./tmp/sdk/
+	cp -r ./tmp/headers ./tmp/sdk/ -v
 	bash tools/disk_generic.sh ./tmp/sdk/disk
 
 	mkdir -p ./tmp/sdk/bin
