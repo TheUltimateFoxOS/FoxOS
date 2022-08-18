@@ -25,6 +25,7 @@
 		"write.h": "c",
 		"sighandler.h": "c",
 		"disk_access.h": "c",
-		"keyboard_helper.h": "c"
+		"keyboard_helper.h": "c",
+		"dir_at.h": "c"
 	}
 }

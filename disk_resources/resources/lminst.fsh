@@ -1,4 +1,4 @@
-echo Welcome to the limine installer help script. | lolcat
+echo Welcome to the limine installer help script.
 
 echo Available disks:
 ls dev:
