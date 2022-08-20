@@ -7,6 +7,8 @@
 
 Our goal is to develop an operation system that focuses on the terminal, performance and reliability. We hope to provide you with a functional, performant and stable OS. And we do that together, everyone can help!
 
+Note: This is not the FoxOS for Windows, this FoxOS is our own operating system and has nothing to do with Windows!
+
 ![screenshot](https://github.com/TheUltimateFoxOS/FoxOS/releases/download/latest/foxos.jpg)
 
 ## Building
