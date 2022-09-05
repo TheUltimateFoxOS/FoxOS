@@ -6,6 +6,13 @@ QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
+set_kvm:
+ifneq ("$(wildcard ./kvm)","")
+	@echo "enabeling kvm"
+	$(eval QEMUFLAGS += --enable-kvm)
+	$(eval QEMUFLAGS_BIOS += --enable-kvm)
+endif
+
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
@@ -51,25 +58,25 @@ vdi: img
 qcow2: img
 	qemu-img convert foxos.img -O qcow2 foxos.qcow2
 
-run: img ./tmp/ovmf
+run: img ./tmp/ovmf set_kvm
 	qemu-system-x86_64 $(QEMUFLAGS)
 
-run-dbg: img ./tmp/ovmf
+run-dbg: img ./tmp/ovmf set_kvm
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS) -s -S
 
-run-vnc: img ./tmp/ovmf
+run-vnc: img ./tmp/ovmf set_kvm
 	qemu-system-x86_64 $(QEMUFLAGS) -vnc :1
 
-run-bios: img
+run-bios: img set_kvm
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS)
 
-run-dbg-bios: img
+run-dbg-bios: img set_kvm
 	screen -dmS qemu qemu-system-x86_64 $(QEMUFLAGS_BIOS) -s -S
 
-run-vnc-bios: img
+run-vnc-bios: img set_kvm
 	qemu-system-x86_64 $(QEMUFLAGS_BIOS) -vnc :1
 
-run-foxos2: ./tmp/ovmf
+run-foxos2: ./tmp/ovmf set_kvm
 	qemu-system-x86_64 $(QEMUFLAGS_RAW) -drive file=foxos2.img
 
 screenshot:
