@@ -28,7 +28,7 @@ Then simply run one of the following:
 * `make docker-img`: package the `.img` file in Docker.
 * `make run`: To build and run FoxOS. (Will not work on Mac)
 
-The following alias command can be used to make your life easier: `alias mkfox="make run-bios USER_CFLAGS=\"-DDEBUG -DMEMORY_TRACKING -DBOOTINFO -fsanitize=undefined -DUBSAN_SUPRES_TYPE_MISSMATCH\""`
+The following alias command can be used to make your life easier: `alias mkfox="make USER_CFLAGS=\"-DDEBUG -DMEMORY_TRACKING -DBOOTINFO -fsanitize=undefined -DUBSAN_SUPRES_TYPE_MISSMATCH\""`
 
 ## Other make commands
 

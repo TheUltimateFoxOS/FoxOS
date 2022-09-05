@@ -6,19 +6,19 @@ QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
-set_kvm:
-ifneq ("$(wildcard ./kvm)","")
-	@echo "enabeling kvm"
-	$(eval QEMUFLAGS += --enable-kvm)
-	$(eval QEMUFLAGS_BIOS += --enable-kvm)
-endif
-
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-programs TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C disk_resources/icons_src
+
+set_kvm:
+ifneq ("$(wildcard ./kvm)","")
+	@echo "enabeling kvm"
+	$(eval QEMUFLAGS += --enable-kvm)
+	$(eval QEMUFLAGS_BIOS += --enable-kvm)
+endif
 
 ./tmp/limine:
 	@echo "Downloading latest limine release!"
