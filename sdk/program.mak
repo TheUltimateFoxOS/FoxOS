@@ -13,9 +13,9 @@ OBJS += $(patsubst %.cpp, $(OBJDIR)/%_$(PROGRAM_NAME).o, $(CPPSRC)) $(CPP_OBJS)
 
 TOOLCHAIN_BASE = /usr/local/foxos-x86_64_elf_gcc
 
-CFLAGS = -O2 -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libfoxos -I$(SDK_ROOT)/headers/libtinf -I$(SDK_ROOT)/headers/libcfg -Iinclude  -fdata-sections -ffunction-sections
+CFLAGS = -O2 -mno-red-zone -ffreestanding -fno-stack-protector -fpic -g -I$(SDK_ROOT)/headers/libc -I$(SDK_ROOT)/headers/libfoxos -I$(SDK_ROOT)/headers/libtinf -I$(SDK_ROOT)/headers/libcfg -I$(SDK_ROOT)/headers/libfoxdb -Iinclude  -fdata-sections -ffunction-sections
 CPPFLAGS = -fno-use-cxa-atexit -fno-rtti $(CFLAGS) -fno-exceptions
-LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libfoxos.a.o $(SDK_ROOT)/lib/libtinf.a.o $(SDK_ROOT)/lib/libcfg.a.o --gc-sections
+LDFLAGS = -pic $(SDK_ROOT)/lib/libc.a.o $(SDK_ROOT)/lib/libfoxos.a.o $(SDK_ROOT)/lib/libtinf.a.o $(SDK_ROOT)/lib/libcfg.a.o $(SDK_ROOT)/lib/libfoxdb.a.o --gc-sections
 
 CFLAGS += $(USER_CFLAGS)
 CPPFLAGS += $(USER_CPPFLAGS)
