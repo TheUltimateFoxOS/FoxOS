@@ -11,8 +11,9 @@ function build_disk_structure {
 	cp disk_resources/startup.nsh $1/
 	cp LICENSE $1/
 	cp disk_resources/dn.fox $1/FOXCFG
-	cp disk_resources/init.cfg $1/FOXCFG
+	# cp disk_resources/init.cfg $1/FOXCFG
 	cp disk_resources/start.fox $1/FOXCFG
+	cp disk_resources/sys.fdb $1/FOXCFG
 
 	mkdir -p $1/FOXCFG/foxde
 
