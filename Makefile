@@ -6,12 +6,17 @@ QEMUFLAGS_BIOS = $(QEMUFLAGS_BIOS_RAW) -drive file=foxos.img -drive file=foxos2.
 
 FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
+KEYBOARD_LAYOUT=us
+KEYBOARD_DEBUG=false
+
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	@make -C FoxOS-programs setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-programs TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C disk_resources/icons_src
+
+	make ./disk_resources/sys.fdb
 
 set_kvm:
 ifneq ("$(wildcard ./kvm)","")
@@ -36,6 +41,17 @@ endif
 	@echo "Downloading saf"
 	@mkdir -p ./tmp/saf
 	@git clone https://github.com/chocabloc/saf.git --depth=1 ./tmp/saf
+
+./tmp/foxdb:
+	@echo "Downloading foxdb cli"
+	@mkdir -p ./tmp/foxdb
+	@git clone https://github.com/TheUltimateFoxOS/foxdb.git --recurse --depth=1 ./tmp/foxdb
+	@make -C ./tmp/foxdb
+
+./disk_resources/sys.fdb: ./tmp/foxdb
+	rm $@ || exit 0
+	./tmp/foxdb/bin/foxdb.elf $@ new_str keyboard_layout $(KEYBOARD_LAYOUT)
+	./tmp/foxdb/bin/foxdb.elf $@ new_bool keyboard_debug $(KEYBOARD_DEBUG)
 
 img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
@@ -90,6 +106,8 @@ clean:
 	make -C FoxOS-programs clean
 	rm -rf disk_root/
 	rm foxos.img foxos.vmdk foxos.vdi foxos.qcow2
+
+	rm ./disk_resources/sys.fdb
 
 	rm FoxOS-programs/limine_install/include/limine-hdd.h
 
