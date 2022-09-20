@@ -5,3 +5,5 @@ read debug
 
 foxdb $ROOT_FS/FOXCFG/sys.fdb remove keyboard_debug
 foxdb $ROOT_FS/FOXCFG/sys.fdb new_bool keyboard_debug $debug
+
+syscfg
