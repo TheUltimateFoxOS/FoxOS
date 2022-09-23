@@ -5,7 +5,7 @@ TARGET=x86_64-elf
 PATH="$PREFIX/bin:$PATH"
 PROG_PREFIX="foxos-"
 BUILD_DIR="/.toolchain/tmp"
-CORES=8
+CORES=2
 
 mkdir $BUILD_DIR -pv
 
