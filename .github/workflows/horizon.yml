@@ -33,6 +33,10 @@ jobs:
     - name: screenshot
       run: |
         make screenshot-bios
+    - name: Trigger foxtail build
+      run: |
+        curl -XPOST -u "${{ secrets.PAT_USERNAME }}:${{ secrets.PAT_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/TheUltimateFoxOS/foxtail/dispatches --data "{\"event_type\": \"build_application\"}"
+
     - uses:  marvinpinto/action-automatic-releases@latest
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
