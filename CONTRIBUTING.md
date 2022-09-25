@@ -48,14 +48,14 @@ int fat32_seek(vfs_mount*, file_t* file, long int offset, int whence) {
 
 ## Documentation
 
-We require you to write a good description of a function you write. This is especially important for functions witch are not internal to a class.
+We require you to write a good description of a function you write. This is especially important for functions witch are not internal to a class. Documentation strings need to be placed in the `docs.txt` file.
 
 ### Documentation in c++
-The documentation header for c++ is `//#<function name>-doc: Description`  
+
+The documentation header for c++ is `#<filepath (/ replaced with _)>:<function name>: doc string`  
 Example:
 
 ```c++
-//#crash-doc: Test function to crash the kernel it is recursive to test the stack tracing.
 void crash() {
 	if(crashc == 100) {
 		*((uint32_t*) 0xff00ff00ff00) = 0;
@@ -66,11 +66,16 @@ void crash() {
 }
 ```
 
-The documentation for a function in a class or namespace is a bit different. The documentation header for c++ code in a class or namespace is `//#<class/namespace>::<function name>-doc: Description`  
+In docs.txt:
+
+```txt
+#core_main.cpp:crash: Test function to crash the kernel it is recursive to test the stack tracing.
+```
+
+The documentation for a function in a class or namespace is a bit different. The documentation header for c++ code in a class or namespace is `#<filepath (/ replaced with _)>:<class/namespace>::<function name>: doc string`
 Example:
 
 ```c++
-//#e1000Driver::detect_eeprom-doc: Check if the e1000 device has an EEPROM and set "e1000Driver::eerprom_exists" accordingly.
 bool e1000Driver::detect_eeprom() {
 	uint32_t val = 0;
 	write_command(REG_EEPROM, 0x1);
@@ -84,13 +89,19 @@ bool e1000Driver::detect_eeprom() {
 }
 ```
 
+In docs.txt:
+
+```txt
+#devices_e1000_e1000.cpp:e1000_driver::detect_eeprom: Detects the eeprom of the e1000
+```
+
 ### Documentation in assembly
-In assembly, the documentation header is `;#<function name>-doc: Description` but you also need to supply a c/c++ function signature using the `;#<function name>-signature: <c/c++ function signature>`  
+
+In assembly you also need to supply a c/c++ function signature using the `;#<function name>-signature: <c/c++ function signature>`  
 Example:
 
 ```asm
 ;# load_gdt-signature: extern "C" void load_gdt(gdt_descriptor_t* gdt_descriptor);
-;# load_gdt-doc: Load the GDT with the given descriptor.
 
 load_gdt:
 	lgdt [rdi]
@@ -107,6 +118,14 @@ load_gdt:
 	push rdi
 
 	retfq
+```
+
+Writing the doc strings works the same way as in a c++ file.
+
+In docs.txt:
+
+```txt
+#core_gdt.asm:load_gdt: Loads the GDT
 ```
 
 ## Copyrights and licenses
