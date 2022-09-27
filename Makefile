@@ -8,6 +8,7 @@ FOX_GCC_PATH=/usr/local/foxos-x86_64_elf_gcc
 
 KEYBOARD_LAYOUT=us
 KEYBOARD_DEBUG=false
+FOXDE_ICONS=window_test
 
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
@@ -52,6 +53,7 @@ endif
 	rm $@ || exit 0
 	./tmp/foxdb/bin/foxdb.elf $@ new_str keyboard_layout $(KEYBOARD_LAYOUT)
 	./tmp/foxdb/bin/foxdb.elf $@ new_bool keyboard_debug $(KEYBOARD_DEBUG)
+	./tmp/foxdb/bin/foxdb.elf $@ new_str foxde_icons $(FOXDE_ICONS)
 
 img: all ./tmp/limine ./tmp/saf
 	sh tools/disk_linux.sh $(FOX_GCC_PATH)
