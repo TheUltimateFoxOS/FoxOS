@@ -10,6 +10,9 @@ KEYBOARD_LAYOUT=us
 KEYBOARD_DEBUG=false
 FOXDE_ICONS=window_test
 
+LIMINE_BRANCH = v4.x-branch-binary
+# LIMINE_BRANCH = v3.0-branch-binary
+
 all:
 	@make -C FoxOS-kernel setup -i TOOLCHAIN_BASE=$(FOX_GCC_PATH)
 	make -C FoxOS-kernel TOOLCHAIN_BASE=$(FOX_GCC_PATH)
@@ -27,10 +30,11 @@ ifneq ("$(wildcard ./kvm)","")
 endif
 
 ./tmp/limine:
-	@echo "Downloading latest limine release!"
+	@echo "Downloading latest $(LIMINE_BRANCH) limine release!"
 	@mkdir -p ./tmp/limine
-	@git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
-	@git -C ./tmp/limine checkout 9761d387a73a1d8ba517421ad3c7c6e6cda49626
+	# @git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary ./tmp/limine
+	# @git -C ./tmp/limine checkout 9761d387a73a1d8ba517421ad3c7c6e6cda49626
+	@git clone https://github.com/limine-bootloader/limine.git --branch=$(LIMINE_BRANCH) ./tmp/limine --depth=1
 
 ./tmp/ovmf:
 	@echo "Downloading OVMF!"
