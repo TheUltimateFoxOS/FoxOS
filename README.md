@@ -53,7 +53,8 @@ To run this OS, you can either use a VM or a bootable USB. See the building sect
 How to start:
 
 * **QEMU**: Use `make run` to build and launch QEMU with the correct configuration.
-* **VirtalBox**: Use `make qcow2` to build a `.qcow2` image file and create a VM to which you add this `.qcow2`. Then you need to enable EFI under "System" in your VM's config. Then run it!
+* **VirtualBox**: Use `make qcow2` to build a `.qcow2` image file and create a VM to which you add this `.qcow2`. Then you need to enable EFI under "System" in your VM's config. Then run it!
+<br/>
 If you want to add documentation on running this OS on a different emulator, feel free to do so.
 
 ## Our Discord
