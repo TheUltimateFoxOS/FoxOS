@@ -24,6 +24,7 @@ jobs:
     - name: make
       run: |
         make clean -i
+        make clean_tmp -i
         make img vmdk vdi qcow2 sdk
     - name: usb
       run: |

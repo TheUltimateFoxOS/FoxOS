@@ -117,6 +117,9 @@ clean:
 
 	rm FoxOS-programs/limine_install/include/limine-hdd.h
 
+clean_tmp:
+	rm -rfv tmp
+
 debug:
 	deno run --allow-run tools/debug.js
 
