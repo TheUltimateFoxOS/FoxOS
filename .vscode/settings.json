@@ -3,6 +3,7 @@
 		"/dev/zero"
 	],
 	"files.associations": {
+		"*.aljs": "javascript",
 		"random": "cpp",
 		"fox_graphics.h": "c",
 		"get_cpu_info.h": "c",
@@ -26,6 +27,14 @@
 		"sighandler.h": "c",
 		"disk_access.h": "c",
 		"keyboard_helper.h": "c",
-		"dir_at.h": "c"
+		"dir_at.h": "c",
+		"clock.h": "c",
+		"test_piping.h": "c",
+		"utils.h": "c",
+		"assembler.h": "c",
+		"asmutils.h": "c",
+		"stdbool.h": "c",
+		"fexec.h": "c",
+		"stdint.h": "c"
 	}
 }
