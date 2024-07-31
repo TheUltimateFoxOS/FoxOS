@@ -3,7 +3,7 @@ export TARGET=x86_64-elf
 export PATH="$PREFIX/bin:$PATH"
 export PROG_PREFIX="foxos-"
 export BUILD_DIR=$PWD"/.toolchain/tmp"
-export CORES=2
+export CORES=8
 
 mkdir $BUILD_DIR -pv
 cd $BUILD_DIR
